@@ -1,5 +1,7 @@
 package com.cdac.irp.pojos;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ public class Student {
 	private String name;
 	private String email;
 	private String password;
+	private Date birthDate;
 	
 	public Student() {
 		
@@ -63,6 +66,14 @@ public class Student {
 	@Override
 	public String toString() {
 		return "User [name=" + name + ", email=" + email + ", password=" + password + "]";
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	
