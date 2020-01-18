@@ -39,19 +39,13 @@ public class StudentDaoImpl implements IStudentDao {
 
 	@Override
 	public void Registration(StudentRegisterModel regStudent) {
-		// String jpql = "Insert into Student s
-		// (s.firstName,s.lastName,s.email,s.password,s.birthDate) values
-		// (:fn,:ln,:em,:pa,:bd)";
-		// entityManager.createNativeQuery(jpql).setParameter("fn",
-		// regStudent.getFirstName()).setParameter("ln",
-		// regStudent.getLastName()).setParameter("em",
-		// regStudent.getEmail()).setParameter("pa",
-		// regStudent.getPassword()).setParameter("bd", regStudent.getBirthDate());
+
 		String jpql = "Insert into Student (prn,first_name,last_name,email,password,birth_date) values (?,?,?,?,?,?)";
 		entityManager.createNativeQuery(jpql).setParameter(1, regStudent.getPrn())
 				.setParameter(2, regStudent.getFirstName()).setParameter(3, regStudent.getLastName())
 				.setParameter(4, regStudent.getEmail()).setParameter(5, MD5.getMd5(regStudent.getPassword()))
 				.setParameter(6, regStudent.getBirthDate()).executeUpdate();
+
 		System.out.println(regStudent);
 	}
 
