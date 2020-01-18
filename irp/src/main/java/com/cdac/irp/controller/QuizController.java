@@ -31,6 +31,7 @@ public class QuizController {
 		return service.getTenQuestionList();
 	}
 	
+	public void trialfun() {}
 	
 
 }

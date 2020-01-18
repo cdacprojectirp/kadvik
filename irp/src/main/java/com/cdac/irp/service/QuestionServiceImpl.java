@@ -18,5 +18,7 @@ public class QuestionServiceImpl implements IQuestionService {
 	public List<Question> getTenQuestionList(/*add course id parameter later on*/) {
 		return qnDao.getQuestionList();
 	}
+	
+	public void trial() {}
 
 }
