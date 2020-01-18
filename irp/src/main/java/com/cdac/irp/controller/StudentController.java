@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.irp.MD5;
+import com.cdac.irp.models.StudentRegisterModel;
 import com.cdac.irp.models.StudentRequestModel;
 import com.cdac.irp.pojos.Student;
 import com.cdac.irp.service.IStudentService;
-
-
 
 @RestController
 @CrossOrigin
@@ -45,5 +44,10 @@ public class StudentController {
 		if (s == null)
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		return new ResponseEntity<Student>(s, HttpStatus.OK);
+	}
+
+	@PostMapping("/register")
+	public void Register(@RequestBody StudentRegisterModel _student) {
+		service.RegisterStudent(_student);
 	}
 }

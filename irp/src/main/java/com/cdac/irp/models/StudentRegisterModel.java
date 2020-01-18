@@ -1,33 +1,23 @@
-package com.cdac.irp.pojos;
+package com.cdac.irp.models;
 
 import java.sql.Date;
 
-import javax.persistence.*;
-
-@Entity
-@Table
-public class Student {
-
+public class StudentRegisterModel {
 	private String prn;
+
+	public String getPrn() {
+		return prn;
+	}
+
+	public void setPrn(String prn) {
+		this.prn = prn;
+	}
+
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
 	private Date birthDate;
-
-	public Student() {
-		System.out.println("in student pojo");
-	}
-
-	public Student(String prn, String firstName, String lastName, String email, String password, Date birthDate) {
-		super();
-		this.prn = prn;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.birthDate = birthDate;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -45,16 +35,6 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	@Id
-	public String getPrn() {
-		return prn;
-	}
-
-	public void setPrn(String prn) {
-		this.prn = prn;
-	}
-
-	@Column(unique = true)
 	public String getEmail() {
 		return email;
 	}
@@ -81,8 +61,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [prn=" + prn + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", birthDate=" + birthDate + "]";
+		return "StudentRegisterModel [prn=" + prn + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", password=" + password + ", birthDate=" + birthDate + "]";
 	}
 
 }
