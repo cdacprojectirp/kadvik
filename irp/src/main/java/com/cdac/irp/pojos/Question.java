@@ -5,35 +5,54 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Question {
-	private int qnId;
-	private String qst;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer questionId;
+
+	private String question;
 	private String imageName;
 	private String option1;
 	private String option2;
 	private String option3;
 	private String option4;
-	private int answer;
-	
+	private Integer answer;
+
+	@ManyToOne
+	@JoinColumn(name = "subject_id")
+	private Subject subject;
+
 	public Question() {
-		// TODO Auto-generated constructor stub
+		System.out.println("in question projects");
 	}
 
-	@Id
-	public int getQnId() {
-		return qnId;
+	public Question(Integer questionId, String question, String imageName, String option1, String option2,
+			String option3, String option4, Integer answer, Subject subject) {
+		super();
+		this.questionId = questionId;
+		this.question = question;
+		this.imageName = imageName;
+		this.option1 = option1;
+		this.option2 = option2;
+		this.option3 = option3;
+		this.option4 = option4;
+		this.answer = answer;
+		this.subject = subject;
 	}
 
-	public void setQnId(int qnId) {
-		this.qnId = qnId;
+	public Integer getQuestionId() {
+		return questionId;
 	}
 
-	@Column(unique = true)
-	public String getQst() {
-		return qst;
+	public void setQuestionId(Integer questionId) {
+		this.questionId = questionId;
 	}
 
-	public void setQst(String qst) {
-		this.qst = qst;
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
 	}
 
 	public String getImageName() {
@@ -76,14 +95,20 @@ public class Question {
 		this.option4 = option4;
 	}
 
-	public int getAnswer() {
+	public Integer getAnswer() {
 		return answer;
 	}
 
-	public void setAnswer(int answer) {
+	public void setAnswer(Integer answer) {
 		this.answer = answer;
 	}
-	
-	
-	
+
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+
 }

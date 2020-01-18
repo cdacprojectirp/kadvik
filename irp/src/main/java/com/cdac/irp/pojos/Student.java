@@ -7,19 +7,34 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Student {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer prn;
 
-	private String prn;
+	@Column(length = 20)
 	private String firstName;
+
+	@Column(length = 20)
 	private String lastName;
+
+	@Column(unique = true, length = 100)
 	private String email;
+
+	@Column(length = 50)
 	private String password;
+
 	private Date birthDate;
+
+	@ManyToOne
+	@JoinColumn(name = "course_id")
+	private Course course;
 
 	public Student() {
 		System.out.println("in student pojo");
 	}
 
-	public Student(String prn, String firstName, String lastName, String email, String password, Date birthDate) {
+	public Student(Integer prn, String firstName, String lastName, String email, String password, Date birthDate,
+			Course course) {
 		super();
 		this.prn = prn;
 		this.firstName = firstName;
@@ -27,6 +42,15 @@ public class Student {
 		this.email = email;
 		this.password = password;
 		this.birthDate = birthDate;
+		this.course = course;
+	}
+
+	public Integer getPrn() {
+		return prn;
+	}
+
+	public void setPrn(Integer prn) {
+		this.prn = prn;
 	}
 
 	public String getFirstName() {
@@ -45,16 +69,6 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	@Id
-	public String getPrn() {
-		return prn;
-	}
-
-	public void setPrn(String prn) {
-		this.prn = prn;
-	}
-
-	@Column(unique = true)
 	public String getEmail() {
 		return email;
 	}
@@ -79,10 +93,12 @@ public class Student {
 		this.birthDate = birthDate;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [prn=" + prn + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", birthDate=" + birthDate + "]";
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 }

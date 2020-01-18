@@ -30,8 +30,9 @@ public class QuizController {
 	public List<Question> getExamQuestions() {
 		return service.getTenQuestionList();
 	}
-	
-	public void trialfun() {}
-	
+
+	public List<Integer> getExamAnswers() {
+		return service.getAnswersList();
+	}
 
 }

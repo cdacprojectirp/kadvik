@@ -21,4 +21,10 @@ public class QuestionServiceImpl implements IQuestionService {
 	
 	public void trial() {}
 
+	@Override
+	public List<Integer> getAnswersList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
