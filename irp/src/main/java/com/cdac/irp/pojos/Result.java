@@ -5,20 +5,20 @@ import javax.persistence.*;
 @Entity
 public class Result {
 
-	// @EmbeddedId
-	// private PKStudentSubject pkStudentSubject;
+	@EmbeddedId
+	private PKStudentSubject result_id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer resultId;
-
-	@OneToOne
-	@JoinColumn(name = "student_id")
+	@MapsId("prn") // map embeddable primary key prn with student table
+	@ManyToOne
+	@JoinColumn(name = "prn") // to keep column name as prn, else the name becomes student_prn ie
+								// instanceName_its pk name
 	private Student student;
-	@OneToOne
+
+	@MapsId("subjectId")
+	@ManyToOne
 	@JoinColumn(name = "subject_id")
 	private Subject subject;
-	
+
 	private Integer marks;
 
 	public Result() {

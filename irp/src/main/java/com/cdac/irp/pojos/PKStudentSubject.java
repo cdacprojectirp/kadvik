@@ -1,40 +1,43 @@
-//package com.cdac.irp.pojos;
-//
-//import javax.persistence.Embeddable;
-//import javax.persistence.MapsId;
-//import javax.persistence.OneToOne;
-//
-//@Embeddable
-//public class PKStudentSubject {
-//
-//	private Student prn;
-//
-//	private Subject subject;
-//
-//	public PKStudentSubject() {
-//		// TODO Auto-generated constructor stub
-//	}
-//
-//	public PKStudentSubject(Student prn, Subject subject) {
-//		super();
-//		this.prn = prn;
-//		this.subject = subject;
-//	}
-//
-//	public Student getPrn() {
-//		return prn;
-//	}
-//
-//	public void setPrn(Student prn) {
-//		this.prn = prn;
-//	}
-//
-//	public Subject getSubject() {
-//		return subject;
-//	}
-//
-//	public void setSubject(Subject subject) {
-//		this.subject = subject;
-//	}
-//
-//}
+package com.cdac.irp.pojos;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class PKStudentSubject implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Integer prn;
+
+	private Integer subjectId;
+
+	public PKStudentSubject() {
+		System.out.println("in pk student subject");
+	}
+
+	public Integer getPrn() {
+		return prn;
+	}
+
+	public void setPrn(Integer prn) {
+		this.prn = prn;
+	}
+
+	public Integer getSubjectId() {
+		return subjectId;
+	}
+
+	public void setSubjectId(Integer subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+}

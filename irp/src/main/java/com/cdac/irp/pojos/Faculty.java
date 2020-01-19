@@ -12,8 +12,7 @@ public class Faculty {
 	private Integer salary;
 	private Integer experience;
 
-	@OneToOne
-	@JoinColumn(name = "subject_id")
+	@OneToOne(mappedBy = "faculty")
 	private Subject subject;
 
 	public Faculty() {
