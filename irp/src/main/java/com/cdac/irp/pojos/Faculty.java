@@ -15,8 +15,6 @@ public class Faculty {
 	@OneToOne(mappedBy = "faculty")
 	private Subject subject;
 	
-	@OneToOne
-	private Feedback feedback;
 
 	public Faculty() {
 		System.out.println("in faculty pojo");

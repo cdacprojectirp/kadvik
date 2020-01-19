@@ -1,19 +1,10 @@
 package com.cdac.irp.pojos;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table
 public class Feedback {
-	
-	@OneToOne
-	@JoinColumn(name="student_id")
+
+
 	private Student student;
-	@OneToOne
-	@JoinColumn(name="faculty_id")
+
 	private Faculty faculty;
 	
 	//feedbacks
