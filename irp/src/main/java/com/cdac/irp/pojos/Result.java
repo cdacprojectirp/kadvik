@@ -5,34 +5,24 @@ import javax.persistence.*;
 @Entity
 public class Result {
 
-	@EmbeddedId
-	private PKStudentSubject pkStudentSubject;
+	// @EmbeddedId
+	// private PKStudentSubject pkStudentSubject;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer resultId;
+
+	@OneToOne
+	@JoinColumn(name = "student_id")
+	private Student student;
+	@OneToOne
+	@JoinColumn(name = "subject_id")
+	private Subject subject;
+	
 	private Integer marks;
 
 	public Result() {
 		System.out.println("in result pojo");
-	}
-
-	public Result(PKStudentSubject pkStudentSubject, Integer marks) {
-		super();
-		this.pkStudentSubject = pkStudentSubject;
-		this.marks = marks;
-	}
-
-	public PKStudentSubject getPkStudentSubject() {
-		return pkStudentSubject;
-	}
-
-	public void setPkStudentSubject(PKStudentSubject pkStudentSubject) {
-		this.pkStudentSubject = pkStudentSubject;
-	}
-
-	public Integer getMarks() {
-		return marks;
-	}
-
-	public void setMarks(Integer marks) {
-		this.marks = marks;
 	}
 
 }

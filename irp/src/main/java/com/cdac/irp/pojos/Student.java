@@ -28,6 +28,12 @@ public class Student {
 	@ManyToOne
 	@JoinColumn(name = "course_id")
 	private Course course;
+	
+	@OneToOne(mappedBy = "student")
+	private Result result;
+	
+	//@OneToOne
+	//private PKStudentSubject result;
 
 	public Student() {
 		System.out.println("in student pojo");

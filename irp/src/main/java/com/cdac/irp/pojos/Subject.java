@@ -20,6 +20,15 @@ public class Subject {
 	@OneToMany(mappedBy = "subject")
 	private List<Question> questions = new ArrayList<Question>();
 
+	@OneToOne(mappedBy = "subject", cascade = CascadeType.ALL)
+	private Faculty faculty;
+	
+	@OneToOne(mappedBy = "subject")
+	private Result result;
+
+	// @OneToOne
+	// private PKStudentSubject result;
+
 	public Subject() {
 		System.out.println("in subject pojo");
 	}
