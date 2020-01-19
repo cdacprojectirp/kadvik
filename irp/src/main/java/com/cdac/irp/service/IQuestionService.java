@@ -6,4 +6,5 @@ import com.cdac.irp.pojos.Question;
 
 public interface IQuestionService {
 	List<Question> getTenQuestionList();
+	List<Integer>getAnswersList();
 }

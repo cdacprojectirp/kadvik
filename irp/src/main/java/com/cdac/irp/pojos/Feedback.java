@@ -1,14 +1,20 @@
 package com.cdac.irp.pojos;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Feedback {
-	private Integer prn;
-	private Integer facultyId;
+	
+	@OneToOne
+	@JoinColumn(name="student_id")
+	private Student student;
+	@OneToOne
+	@JoinColumn(name="faculty_id")
+	private Faculty faculty;
 	
 	//feedbacks
 	private Integer punctuality;
@@ -17,21 +23,20 @@ public class Feedback {
 	private Integer assignment;
 	private String comments;
 	
-	@Id
-	public Integer getPrn() {
-		return prn;
+	public Student getStudent() {
+		return student;
 	}
 	
-	public void setPrn(Integer prn) {
-		this.prn = prn;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 	
-	public Integer getFacultyId() {
-		return facultyId;
+	public Faculty getFaculty() {
+		return faculty;
 	}
 	
-	public void setFacultyId(Integer facultyId) {
-		this.facultyId = facultyId;
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
 	}
 	
 	public Integer getPunctuality() {
@@ -73,5 +78,7 @@ public class Feedback {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
+	
 
 }
