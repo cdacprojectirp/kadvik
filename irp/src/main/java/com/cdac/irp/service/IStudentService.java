@@ -2,7 +2,7 @@ package com.cdac.irp.service;
 
 import java.util.List;
 
-import com.cdac.irp.models.StudentRegisterModel;
+import com.cdac.irp.models.StudentRegisterRequestModel;
 import com.cdac.irp.pojos.Student;
 
 public interface IStudentService {
@@ -11,6 +11,6 @@ public interface IStudentService {
 
 	List<Student> getAllStudents();
 
-	void RegisterStudent(StudentRegisterModel _student);
+	void RegisterStudent(StudentRegisterRequestModel _student);
 
 }

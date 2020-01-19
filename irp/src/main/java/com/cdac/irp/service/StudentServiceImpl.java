@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cdac.irp.dao.IStudentDao;
-import com.cdac.irp.models.StudentRegisterModel;
+import com.cdac.irp.models.StudentRegisterRequestModel;
 import com.cdac.irp.pojos.Student;
 
 @Service
@@ -28,7 +28,7 @@ public class StudentServiceImpl implements IStudentService {
 	}
 
 	@Override
-	public void RegisterStudent(StudentRegisterModel _student) {
+	public void RegisterStudent(StudentRegisterRequestModel _student) {
 		dao.Registration(_student);
 
 	}

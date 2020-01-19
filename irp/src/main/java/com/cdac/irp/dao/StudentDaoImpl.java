@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cdac.irp.MD5;
-import com.cdac.irp.models.StudentRegisterModel;
+import com.cdac.irp.models.StudentRegisterRequestModel;
 import com.cdac.irp.pojos.Student;
 
 @Repository
@@ -38,7 +38,7 @@ public class StudentDaoImpl implements IStudentDao {
 	}
 
 	@Override
-	public void Registration(StudentRegisterModel regStudent) {
+	public void Registration(StudentRegisterRequestModel regStudent) {
 
 		String jpql = "Insert into Student (prn,first_name,last_name,email,password,birth_date) values (?,?,?,?,?,?)";
 		entityManager.createNativeQuery(jpql).setParameter(1, regStudent.getPrn())

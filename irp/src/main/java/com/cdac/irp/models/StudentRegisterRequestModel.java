@@ -2,7 +2,7 @@ package com.cdac.irp.models;
 
 import java.sql.Date;
 
-public class StudentRegisterModel {
+public class StudentRegisterRequestModel {
 	private String prn;
 
 	public String getPrn() {

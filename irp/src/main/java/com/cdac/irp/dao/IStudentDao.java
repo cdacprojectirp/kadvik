@@ -2,7 +2,7 @@ package com.cdac.irp.dao;
 
 import java.util.List;
 
-import com.cdac.irp.models.StudentRegisterModel;
+import com.cdac.irp.models.StudentRegisterRequestModel;
 import com.cdac.irp.pojos.Student;
 
 public interface IStudentDao {
@@ -11,5 +11,5 @@ public interface IStudentDao {
 
 	List<Student> getAllStudents();
 
-	void Registration(StudentRegisterModel regStudent);
+	void Registration(StudentRegisterRequestModel regStudent);
 }

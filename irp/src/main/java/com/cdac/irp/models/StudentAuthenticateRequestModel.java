@@ -1,11 +1,11 @@
 package com.cdac.irp.models;
 
-public class StudentRequestModel {
+public class StudentAuthenticateRequestModel {
 	
 	private String email;
 	private String password;
 	
-	public StudentRequestModel() {
+	public StudentAuthenticateRequestModel() {
 		
 	}
 	

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.irp.MD5;
-import com.cdac.irp.models.StudentRegisterModel;
-import com.cdac.irp.models.StudentRequestModel;
+import com.cdac.irp.models.StudentAuthenticateRequestModel;
+import com.cdac.irp.models.StudentRegisterRequestModel;
 import com.cdac.irp.pojos.Student;
 import com.cdac.irp.service.IStudentService;
 
@@ -39,7 +39,7 @@ public class StudentController {
 	}
 
 	@PostMapping("/authenticate")
-	public ResponseEntity<?> Authenticate(@RequestBody StudentRequestModel _s) {
+	public ResponseEntity<?> Authenticate(@RequestBody StudentAuthenticateRequestModel _s) {
 		Student s = service.Authenticate(_s.getEmail(), MD5.getMd5(_s.getPassword()));
 		if (s == null)
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
@@ -47,7 +47,7 @@ public class StudentController {
 	}
 
 	@PostMapping("/register")
-	public void Register(@RequestBody StudentRegisterModel _student) {
+	public void Register(@RequestBody StudentRegisterRequestModel _student) {
 		service.RegisterStudent(_student);
 	}
 }
