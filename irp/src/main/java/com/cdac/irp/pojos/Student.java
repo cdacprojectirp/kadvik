@@ -29,8 +29,8 @@ public class Student {
 	@JoinColumn(name = "course_id")
 	private Course course;
 	
-	@OneToOne(mappedBy = "student")
-	private Result result;
+	//@OneToOne(mappedBy = "student")
+	//private Result result;
 	
 	//@OneToOne
 	//private PKStudentSubject result;
