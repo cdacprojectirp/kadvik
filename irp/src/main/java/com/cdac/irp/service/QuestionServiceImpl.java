@@ -1,5 +1,6 @@
 package com.cdac.irp.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,14 @@ public class QuestionServiceImpl implements IQuestionService {
 
 	@Autowired
 	private IQuestionDao qnDao;
-	
+
 	@Override
-	public List<Question> getTenQuestionList(/*add course id parameter later on*/) {
-		return qnDao.getQuestionList();
+	public List<Question> getTenQuestionList(/* add course id parameter later on and student id for randomizer seed */) {
+		List<Question> qts = qnDao.getQuestionList();
+		Collections.shuffle(qts);
+		//return qts.subList(0, 10);
+		return qts;
 	}
-	
-	public void trial() {}
 
 	@Override
 	public List<Integer> getAnswersList() {

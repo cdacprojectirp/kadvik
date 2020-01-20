@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cdac.irp.models.QuestionModel;
 import com.cdac.irp.pojos.Question;
 import com.cdac.irp.service.IQuestionService;
 
@@ -30,8 +31,8 @@ public class QuizController {
 	public List<Question> getExamQuestions() {
 		return service.getTenQuestionList();
 	}
-	
-	public void trialfun() {}
-	
+
+	public void trialfun() {
+	}
 
 }

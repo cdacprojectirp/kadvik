@@ -10,7 +10,7 @@ public class Question {
 	private Integer questionId;
 
 	private String question;
-	private String imageName;
+	// private String imageName;
 	private String option1;
 	private String option2;
 	private String option3;
@@ -22,15 +22,15 @@ public class Question {
 	private Subject subject;
 
 	public Question() {
-		System.out.println("in question projects");
+		System.out.println("in question pojo");
 	}
 
-	public Question(Integer questionId, String question, String imageName, String option1, String option2,
-			String option3, String option4, Integer answer, Subject subject) {
+	public Question(Integer questionId, String question, String option1, String option2, String option3, String option4,
+			Integer answer, Subject subject) {
 		super();
 		this.questionId = questionId;
 		this.question = question;
-		this.imageName = imageName;
+		// this.imageName = imageName;
 		this.option1 = option1;
 		this.option2 = option2;
 		this.option3 = option3;
@@ -53,14 +53,6 @@ public class Question {
 
 	public void setQuestion(String question) {
 		this.question = question;
-	}
-
-	public String getImageName() {
-		return imageName;
-	}
-
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
 	}
 
 	public String getOption1() {
