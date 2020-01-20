@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cdac.irp.models.FeedbackAddFeedbackRequestModel;
 import com.cdac.irp.models.FeedbackGetFeedbackRequestModel;
 import com.cdac.irp.pojos.Feedback;
 import com.cdac.irp.service.IFeedbackService;
@@ -25,6 +26,7 @@ public class FeedbackController {
 	@GetMapping("/getFeedback")
 	public ResponseEntity<?> getFeedback(@RequestBody FeedbackGetFeedbackRequestModel _request){
 		Feedback f = service.getFeedback(_request.getPrn(), _request.getFacultyId());
+		System.out.println(f);
 		if(f==null) {
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		}
@@ -33,9 +35,9 @@ public class FeedbackController {
 	}
 	
 	@PostMapping("/addFeedback")
-	public ResponseEntity<?> getFeedback(@RequestBody Feedback f){
+	public ResponseEntity<?> addFeedback(@RequestBody FeedbackAddFeedbackRequestModel _request){
 		try {
-			return new ResponseEntity<Feedback>(service.addFeedback(f), HttpStatus.CREATED);
+			return new ResponseEntity<FeedbackAddFeedbackRequestModel>(service.addFeedback(_request), HttpStatus.CREATED);
 		}
 		catch(Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
