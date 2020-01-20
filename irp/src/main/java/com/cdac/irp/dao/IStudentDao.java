@@ -7,7 +7,7 @@ import com.cdac.irp.pojos.Student;
 
 public interface IStudentDao {
 
-	Student Authenticate(String username, String password);
+	Integer Authenticate(String username, String password);
 
 	List<Student> getAllStudents();
 

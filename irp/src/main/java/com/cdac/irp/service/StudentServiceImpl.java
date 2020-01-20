@@ -18,7 +18,7 @@ public class StudentServiceImpl implements IStudentService {
 	private IStudentDao dao;
 
 	@Override
-	public Student Authenticate(String email, String password) {
+	public Integer Authenticate(String email, String password) {
 		return dao.Authenticate(email, password);
 	}
 

@@ -19,16 +19,16 @@ public class StudentDaoImpl implements IStudentDao {
 	private EntityManager entityManager;
 
 	@Override
-	public Student Authenticate(String email, String password) {
-		Student s;
-		String jpql = "select s from Student s where s.email=:em and s.password=:pa";
+	public Integer Authenticate(String email, String password) {
+		Integer prn;
+		String jpql = "select s.prn from Student s where s.email=:em and s.password=:pa";
 		try {
-			s = entityManager.unwrap(Session.class).createQuery(jpql, Student.class).setParameter("em", email)
+			prn = entityManager.unwrap(Session.class).createQuery(jpql, Integer.class).setParameter("em", email)
 					.setParameter("pa", password).getSingleResult();
 		} catch (Exception e) {
 			return null;
 		}
-		return s;
+		return prn;
 	}
 
 	@Override

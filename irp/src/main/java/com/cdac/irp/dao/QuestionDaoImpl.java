@@ -19,18 +19,23 @@ public class QuestionDaoImpl implements IQuestionDao {
 
 	@Override
 	public List<Question> getQuestionList() {
-		// String jpql = "select q.question_id q.question, q.option1, q.option2,
-		// q.option3, q.option4 from Question q";
-		String jpql = "SElECT q.question, q.option1 FROM Question AS q";
+		String jpql = "SElECT q.questionId, q.question, q.option1, q.option2, q.option3, q.option4 FROM Question AS q";
 		List<Object[]> olt = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class).getResultList();
-		System.out.println(olt);
+		//System.out.println(olt);
 		List<Question> lt = new ArrayList<>();
-		Question q = new Question();
 		for (Object[] oa : olt) {
-			q.setQuestion((String) oa[0]);
-			q.setOption1((String) oa[1]);
+			Question q = new Question();
+			int i = 0;
+			q.setQuestionId((Integer) oa[i++]);
+			q.setQuestion((String) oa[i++]);
+			q.setOption1((String) oa[i++]);
+			q.setOption2((String) oa[i++]);
+			q.setOption3((String) oa[i++]);
+			q.setOption4((String) oa[i++]);
+			//System.out.println(q);
 			lt.add(q);
 		}
+		//System.out.println(lt);
 		return lt;
 	}
 

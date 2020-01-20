@@ -103,4 +103,13 @@ public class Question {
 		this.subject = subject;
 	}
 
+	@Override
+	public String toString() {
+		return "Question [questionId=" + questionId + ", question=" + question + ", option1=" + option1 + ", option2="
+				+ option2 + ", option3=" + option3 + ", option4=" + option4 + ", answer=" + answer + ", subject="
+				+ subject + "]";
+	}
+	
+	
+
 }

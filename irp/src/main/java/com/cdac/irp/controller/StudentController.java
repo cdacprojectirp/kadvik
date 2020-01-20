@@ -40,10 +40,10 @@ public class StudentController {
 
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> Authenticate(@RequestBody StudentAuthenticateRequestModel _s) {
-		Student s = service.Authenticate(_s.getEmail(), MD5.getMd5(_s.getPassword()));
-		if (s == null)
+		Integer prn = service.Authenticate(_s.getEmail(), MD5.getMd5(_s.getPassword()));
+		if (prn == null)
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
-		return new ResponseEntity<Student>(s, HttpStatus.OK);
+		return new ResponseEntity<Integer>(prn, HttpStatus.OK);
 	}
 
 	@PostMapping("/register")
