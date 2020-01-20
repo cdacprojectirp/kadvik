@@ -28,7 +28,7 @@ public class QuizController {
 	}
 
 	@GetMapping("/quiz")
-	public List<Question> getExamQuestions() {
+	public List<QuestionModel> getExamQuestions() {
 		return service.getTenQuestionList();
 	}
 
