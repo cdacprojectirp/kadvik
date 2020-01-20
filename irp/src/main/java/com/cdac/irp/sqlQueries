@@ -1,0 +1,25 @@
+insert into course (course_name) values ('dac'); 
+insert into course (course_name) values ('dbda'); 
+
+select * from course;
+
+insert into faculty (faculty_name, experience, salary ) values ('Madhura', 10, 50000);
+insert into faculty (faculty_name, experience, salary ) values ('Ravi', 15, 70000);
+
+select * from faculty;
+
+insert into subject (subject_name, course_id, faculty_id) values ('java', 1, 1);
+insert into subject (subject_name, course_id, faculty_id) values ('c#', 1, 2);
+
+select * from subject;
+
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select a', 'a', 'b', 'c', 'd', 1);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select b', 'a', 'b', 'c', 'd', 2);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select c', 'a', 'b', 'c', 'd', 3);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select d', 'a', 'b', 'c', 'd', 4);
+
+select * from question;
+
+insert into student(first_name,last_name,email,password,birth_date,course_id) values ('Akshay','Gadsing','akshay@gmail.com','2de1b2d6a6738df78c5f9733853bd170','1997-02-23',1);
+
+select * from student;
