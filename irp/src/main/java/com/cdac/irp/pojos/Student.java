@@ -107,4 +107,10 @@ public class Student {
 		this.course = course;
 	}
 
+	@Override
+	public String toString() {
+		return "Student [prn=" + prn + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", birthDate=" + birthDate + ", course=" + course + "]";
+	}
+
 }

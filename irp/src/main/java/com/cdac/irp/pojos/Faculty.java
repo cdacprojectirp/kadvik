@@ -69,4 +69,12 @@ public class Faculty {
 		this.subject = subject;
 	}
 
+	@Override
+	public String toString() {
+		return "Faculty [facultyId=" + facultyId + ", facultyName=" + facultyName + ", salary=" + salary
+				+ ", experience=" + experience + ", subject=" + subject + "]";
+	}
+	
+	
+
 }
