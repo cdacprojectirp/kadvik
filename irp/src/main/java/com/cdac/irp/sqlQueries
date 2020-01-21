@@ -23,3 +23,26 @@ select * from question;
 insert into student(first_name,last_name,email,password,birth_date,course_id) values ('Akshay','Gadsing','akshay@gmail.com','2de1b2d6a6738df78c5f9733853bd170','1997-02-23',1);
 
 select * from student;
+
+select * from time_table;
+
+insert into time_table values(null,"Monday","ASDM","CPP","Java",1);
+
+insert into time_table values(null,"Tuesday","Apti","OS","Java",1);
+
+insert into time_table values(null,"Wednesday","DevOps","Testing","java",1);
+
+insert into time_table values(null,"Thursday",".Net","Apti","Java",1);
+
+insert into time_table values(null,"Friday","Mean","AWP","java",1);
+
+insert into time_table values(null,"Monday","R lang","Python Lang","Stats",2);
+
+insert into time_table values(null,"Tuesday","Repo","Git","Stats",2);
+
+insert into time_table values(null,"Wednesday","R","Visual","Stats",2);
+
+insert into time_table values(null,"Thursday","Python","Visual","Apti",2);
+
+ insert into time_table values(null,"Friday","EC","Visual","Apti",2);
+

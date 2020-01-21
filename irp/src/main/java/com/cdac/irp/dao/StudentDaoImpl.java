@@ -23,9 +23,11 @@ public class StudentDaoImpl implements IStudentDao {
 		Integer prn;
 		String jpql = "select s.prn from Student s where s.email=:em and s.password=:pa";
 		try {
+			
 			prn = entityManager.unwrap(Session.class).createQuery(jpql, Integer.class).setParameter("em", email)
 					.setParameter("pa", password).getSingleResult();
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 		return prn;

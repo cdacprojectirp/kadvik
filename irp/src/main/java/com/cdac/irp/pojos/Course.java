@@ -10,8 +10,9 @@ public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int courseId;
-
 	String courseName;
+	
+
 
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 	private List<Subject> subjects = new ArrayList<Subject>();
@@ -23,13 +24,17 @@ public class Course {
 		System.out.println("in course pojo");
 	}
 
-	public Course(int courseId, String courseName, List<Subject> subjects, List<Student> students) {
+
+	public Course(int courseId, String courseName,  List<Subject> subjects,
+			List<Student> students) {
 		super();
 		this.courseId = courseId;
 		this.courseName = courseName;
+		//this.timeTable = timeTable;
 		this.subjects = subjects;
 		this.students = students;
 	}
+
 
 	public int getCourseId() {
 		return courseId;
@@ -62,5 +67,19 @@ public class Course {
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
+
+
+//	public TimeTable getTimeTable() {
+//		return timeTable;
+//	}
+//
+//
+//	public void setTimeTable(TimeTable timeTable) {
+//		this.timeTable = timeTable;
+//	}
+
+
+
+
 
 }
