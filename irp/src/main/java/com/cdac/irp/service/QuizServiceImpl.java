@@ -37,10 +37,10 @@ public class QuizServiceImpl implements IQuizService {
 		}
 		return lt;
 	}
-	
+
 	@Override
 	public List<AnswerModel> getAnswersList() {
-		return dao.getAnswerList();	
+		return dao.getAnswerList();
 	}
 
 }
