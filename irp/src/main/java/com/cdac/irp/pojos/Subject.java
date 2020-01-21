@@ -20,7 +20,7 @@ public class Subject {
 	@OneToMany(mappedBy = "subject")
 	private List<Question> questions = new ArrayList<Question>();
 
-	@OneToOne()
+	@OneToOne
 	@JoinColumn(name = "faculty_id")
 	private Faculty faculty;
 	

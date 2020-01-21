@@ -26,7 +26,6 @@ public class FeedbackController {
 	@GetMapping("/getFeedback")
 	public ResponseEntity<?> getFeedback(@RequestBody FeedbackGetFeedbackRequestModel _request){
 		Feedback f = service.getFeedback(_request.getPrn(), _request.getFacultyId());
-		System.out.println(f);
 		if(f==null) {
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		}

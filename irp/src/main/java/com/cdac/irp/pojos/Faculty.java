@@ -7,9 +7,8 @@ public class Faculty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer facultyId;
-
 	private String facultyName;
-	private Integer salary;
+	private Double salary;
 	private Integer experience;
 
 	@OneToOne(mappedBy = "faculty")
@@ -20,7 +19,7 @@ public class Faculty {
 		System.out.println("in faculty pojo");
 	}
 
-	public Faculty(Integer facultyId, String facultyName, Integer salary, Integer experience, Subject subject) {
+	public Faculty(Integer facultyId, String facultyName, Double salary, Integer experience, Subject subject) {
 		super();
 		this.facultyId = facultyId;
 		this.facultyName = facultyName;
@@ -45,11 +44,11 @@ public class Faculty {
 		this.facultyName = facultyName;
 	}
 
-	public Integer getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(Integer salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
 
