@@ -1,19 +1,13 @@
-package com.cdac.irp.dao;
+package com.cdac.irp.service;
 
 import java.util.List;
 
 import com.cdac.irp.models.FacultyGetAllResponseModel;
 import com.cdac.irp.models.FacultyGetResponseModel;
-import com.cdac.irp.pojos.Faculty;
 
-public interface IFacultyDao {
-	// CRUD
-	Faculty getfaculty(int id);
+public interface IFacultyService {
 
-	void setFaculty(Faculty f);
-	
 	List<FacultyGetAllResponseModel> getAll();
 	
 	List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn);
-
 }

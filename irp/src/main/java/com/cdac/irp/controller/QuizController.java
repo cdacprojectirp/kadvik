@@ -7,12 +7,13 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cdac.irp.models.AnswerModel;
 import com.cdac.irp.models.QuestionModel;
-import com.cdac.irp.pojos.Question;
-import com.cdac.irp.service.IQuestionService;
+import com.cdac.irp.service.IQuizService;
 
 @RestController
 @CrossOrigin
@@ -20,7 +21,7 @@ import com.cdac.irp.service.IQuestionService;
 public class QuizController {
 
 	@Autowired
-	private IQuestionService service;
+	private IQuizService service;
 
 	@PostConstruct
 	public void init() {
@@ -28,11 +29,14 @@ public class QuizController {
 	}
 
 	@GetMapping("/quiz")
-	public List<Question> getExamQuestions() {
+	public List<QuestionModel> getExamQuestions() {
 		return service.getTenQuestionList();
 	}
 
-	public void trialfun() {
+	@GetMapping("/answers")
+	public List<AnswerModel> getExamAnswers(@RequestBody AnswerModel ansBody) {
+		ansBody.getQuestionId();
+		return service.getAnswersList();
 	}
 
 }

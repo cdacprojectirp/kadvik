@@ -10,7 +10,6 @@ public class FeedbackGetFeedbackRequestModel {
 	
 	public int getFacultyId() {
 		return facultyId;
-	}
-	
+	}	
 	
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cdac.irp.dao.IFeedbackDao;
+import com.cdac.irp.models.FeedbackAddFeedbackRequestModel;
 import com.cdac.irp.pojos.Feedback;
 
 @Service
@@ -20,8 +21,8 @@ public class FeedbackServiceImpl implements IFeedbackService {
 	}
 
 	@Override
-	public Feedback addFeedback(Feedback f) {
-		return dao.addFeedback(f);
+	public FeedbackAddFeedbackRequestModel addFeedback(FeedbackAddFeedbackRequestModel _request) {
+		return dao.addFeedback(_request);
 	}
 
 }
