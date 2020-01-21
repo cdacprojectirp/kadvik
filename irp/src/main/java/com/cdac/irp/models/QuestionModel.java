@@ -4,7 +4,7 @@ public class QuestionModel {
 
 	private Integer questionId;
 	private String question;
-	private String[] option;
+	private String[] options;
 
 	public QuestionModel() {
 		System.out.println("in question model");
@@ -26,12 +26,12 @@ public class QuestionModel {
 		this.question = question;
 	}
 
-	public String[] getOption() {
-		return option;
+	public String[] getOptions() {
+		return options;
 	}
 
-	public void setOption(String[] option) {
-		this.option = option;
+	public void setOptions(String[] options) {
+		this.options = options;
 	}
 
 }
