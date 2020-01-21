@@ -18,6 +18,17 @@ insert into question (subject_id, question ,option1, option2, option3, option4, 
 insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select c', 'a', 'b', 'c', 'd', 3);
 insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select d', 'a', 'b', 'c', 'd', 4);
 
+
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select a2', 'a', 'b', 'c', 'd', 1);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select b2', 'a', 'b', 'c', 'd', 2);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select c2', 'a', 'b', 'c', 'd', 3);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select d2', 'a', 'b', 'c', 'd', 4);
+
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select a3', 'a', 'b', 'c', 'd', 1);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select b3', 'a', 'b', 'c', 'd', 2);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select c3', 'a', 'b', 'c', 'd', 3);
+insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (1, 'Select d3', 'a', 'b', 'c', 'd', 4);
+
 select * from question;
 
 insert into student(first_name,last_name,email,password,birth_date,course_id) values ('Akshay','Gadsing','akshay@gmail.com','2de1b2d6a6738df78c5f9733853bd170','1997-02-23',1);
