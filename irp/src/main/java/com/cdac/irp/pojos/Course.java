@@ -68,7 +68,7 @@ public class Course {
 		this.students = students;
 	}
 
-<<<<<<< HEAD
+
 
 //	public TimeTable getTimeTable() {
 //		return timeTable;
@@ -79,16 +79,12 @@ public class Course {
 //		this.timeTable = timeTable;
 //	}
 
-
-
-
-=======
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", subjects=" + subjects + "]";
 	}
 	
 	
->>>>>>> branch 'master' of https://github.com/cdacprojectirp/kadvik.git
+
 
 }
