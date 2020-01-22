@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.irp.models.FeedbackAddFeedbackRequestModel;
 import com.cdac.irp.models.FeedbackGetFeedbackRequestModel;
+import com.cdac.irp.models.FeedbackGetResponseModel;
 import com.cdac.irp.pojos.Feedback;
 import com.cdac.irp.service.IFeedbackService;
 
@@ -23,13 +24,13 @@ public class FeedbackController {
 	@Autowired
 	private IFeedbackService service;
 	
-	@GetMapping("/getFeedback")
+	@PostMapping("/getFeedback")
 	public ResponseEntity<?> getFeedback(@RequestBody FeedbackGetFeedbackRequestModel _request){
-		Feedback f = service.getFeedback(_request.getPrn(), _request.getFacultyId());
+		FeedbackGetResponseModel f = service.getFeedback(_request.getPrn(), _request.getFacultyId());
 		if(f==null) {
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		}
-		return new ResponseEntity<Feedback>(f, HttpStatus.OK);
+		return new ResponseEntity<FeedbackGetResponseModel>(f, HttpStatus.OK);
 		
 	}
 	

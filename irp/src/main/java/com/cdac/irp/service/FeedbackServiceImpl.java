@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cdac.irp.dao.IFeedbackDao;
 import com.cdac.irp.models.FeedbackAddFeedbackRequestModel;
-import com.cdac.irp.pojos.Feedback;
+import com.cdac.irp.models.FeedbackGetResponseModel;
 
 @Service
 @Transactional
@@ -16,7 +16,7 @@ public class FeedbackServiceImpl implements IFeedbackService {
 	private IFeedbackDao dao;
 
 	@Override
-	public Feedback getFeedback(int prn, int facultyId) {
+	public FeedbackGetResponseModel getFeedback(int prn, int facultyId) {
 		return dao.getFeedback(prn, facultyId);
 	}
 

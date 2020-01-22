@@ -2,6 +2,7 @@ package com.cdac.irp.models;
 
 public class FacultyGetResponseModel {
 	
+	private Integer facultyId;
 	private String facultyName;
 	private String courseName;
 	
@@ -20,8 +21,13 @@ public class FacultyGetResponseModel {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	
-	
-	
 
+	public Integer getFacultyId() {
+		return facultyId;
+	}
+
+	public void setFacultyId(Integer facultyId) {
+		this.facultyId = facultyId;
+	}
+	
 }
