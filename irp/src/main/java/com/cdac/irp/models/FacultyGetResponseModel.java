@@ -4,6 +4,7 @@ public class FacultyGetResponseModel {
 	
 	private Integer facultyId;
 	private String facultyName;
+	private String subjectName;
 	private String courseName;
 	
 	public String getFacultyName() {
@@ -29,5 +30,15 @@ public class FacultyGetResponseModel {
 	public void setFacultyId(Integer facultyId) {
 		this.facultyId = facultyId;
 	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+	
+	
 	
 }
