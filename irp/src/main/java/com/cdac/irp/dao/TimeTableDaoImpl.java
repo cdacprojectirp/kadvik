@@ -28,10 +28,8 @@ public class TimeTableDaoImpl implements ITimeTableDao
 	public List<TimeTable> getTimeTable(Integer data)
 	{
 		System.out.print(data);
-		//String jpql = "select s from Student s where s.prn=:pr";
 		Student s = entityManager.unwrap(Session.class).load(Student.class,data);
 		
-		//Integer couId=s.getCourse().getCourseId();
 		Course couId=s.getCourse();
 		
 		String jpql1 = "select t from TimeTable t where t.courseId=:cId";

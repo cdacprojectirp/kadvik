@@ -20,6 +20,7 @@ public class TimeTableServiceImpl implements ITimeTable {
 	@Override
 	public  List<TimeTable> getTimeTable(Integer data)
 	{
+		
 		return dao.getTimeTable(data);
 	}
 
