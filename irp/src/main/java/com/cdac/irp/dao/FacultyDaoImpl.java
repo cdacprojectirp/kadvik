@@ -49,7 +49,7 @@ public class FacultyDaoImpl implements IFacultyDao {
 		Integer courseId = s.getCourse().getCourseId();
 		String courseName = s.getCourse().getCourseName();
 		
-		String jpql = "SELECT f.facultyId, f.facultyName, s.course.courseName FROM Subject s INNER JOIN s.faculty f WHERE s.course.courseId=:cId";
+		String jpql = "SELECT f.facultyId, f.facultyName, s.subjectName FROM Subject s INNER JOIN s.faculty f WHERE s.course.courseId=:cId";
 
 		List<Object[]> ol = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class).setParameter("cId", courseId).getResultList();
 		List<FacultyGetResponseModel> fl = new ArrayList<>();
@@ -59,6 +59,7 @@ public class FacultyDaoImpl implements IFacultyDao {
 			int i = 0;
 			model.setFacultyId(((Integer)o[i++]));
 			model.setFacultyName((String)o[i++]);
+			model.setSubjectName((String)o[i++]);
 			model.setCourseName(courseName);
 			fl.add(model);
 		}
