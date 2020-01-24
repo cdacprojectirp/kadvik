@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,17 +23,17 @@ public class FeedbackController {
 	@Autowired
 	private IFeedbackService service;
 	
-	@PostMapping("/getFeedback")
+	@PostMapping("/getfeedback")
 	public ResponseEntity<?> getFeedback(@RequestBody FeedbackGetFeedbackRequestModel _request){
 		FeedbackGetResponseModel f = service.getFeedback(_request.getPrn(), _request.getFacultyId());
 		if(f==null) {
-			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+			return null;
 		}
 		return new ResponseEntity<FeedbackGetResponseModel>(f, HttpStatus.OK);
 		
 	}
 	
-	@PostMapping("/addFeedback")
+	@PostMapping("/addfeedback")
 	public ResponseEntity<?> addFeedback(@RequestBody FeedbackAddFeedbackRequestModel _request){
 		try {
 			return new ResponseEntity<FeedbackAddFeedbackRequestModel>(service.addFeedback(_request), HttpStatus.CREATED);
