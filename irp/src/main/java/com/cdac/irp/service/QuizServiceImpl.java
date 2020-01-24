@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cdac.irp.dao.IQuizDao;
-import com.cdac.irp.models.AnswerModel;
+import com.cdac.irp.models.AnswerRequestModel;
+import com.cdac.irp.models.AnswerResponseModel;
 import com.cdac.irp.models.QuestionModel;
 import com.cdac.irp.pojos.Question;
 
@@ -39,8 +40,8 @@ public class QuizServiceImpl implements IQuizService {
 	}
 
 	@Override
-	public List<AnswerModel> getAnswersList() {
-		return dao.getAnswerList();
+	public List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds) {
+		return dao.getAnswerList(qstIds);
 	}
 
 }

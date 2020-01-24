@@ -1,10 +1,10 @@
 package com.cdac.irp.models;
 
-public class AnswerModel {
+public class AnswerResponseModel {
 	Integer questionId;
 	Integer answer;
 
-	public AnswerModel() {
+	public AnswerResponseModel() {
 		System.out.println("in answer model");
 	}
 
@@ -23,5 +23,12 @@ public class AnswerModel {
 	public void setAnswer(Integer answer) {
 		this.answer = answer;
 	}
+
+	@Override
+	public String toString() {
+		return "AnswerResponseModel [questionId=" + questionId + ", answer=" + answer + "]";
+	}
+	
+	
 
 }
