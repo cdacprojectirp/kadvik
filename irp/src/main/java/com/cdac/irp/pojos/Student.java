@@ -1,5 +1,6 @@
 package com.cdac.irp.pojos;
 
+import java.beans.Transient;
 import java.sql.Date;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class Student {
 
 	@Column(length = 50)
 	private String password;
-
+	
 	private Date birthDate;
 
 	@ManyToOne
@@ -106,6 +107,8 @@ public class Student {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+
+
 
 	@Override
 	public String toString() {
