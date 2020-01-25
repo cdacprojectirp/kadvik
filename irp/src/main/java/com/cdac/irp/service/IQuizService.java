@@ -9,4 +9,5 @@ import com.cdac.irp.models.QuestionModel;
 public interface IQuizService {
 	List<QuestionModel> getTenQuestionList();
 	List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds);
+	List<QuestionModel> getQuestionsBySubject(Integer subId);
 }

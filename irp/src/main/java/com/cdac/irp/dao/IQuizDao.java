@@ -13,5 +13,7 @@ public interface IQuizDao {
 	List<Question> getQuestionList();
 	
 	List<AnswerResponseModel> getAnswerList(List<AnswerRequestModel> qstIds);
+
+	List<Question> getQuestionbySubject(Integer subId);
 	
 }

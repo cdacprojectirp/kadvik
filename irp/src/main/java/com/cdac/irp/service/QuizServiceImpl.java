@@ -26,7 +26,8 @@ public class QuizServiceImpl implements IQuizService {
 													 */) {
 		List<Question> qts = dao.getQuestionList();
 		Collections.shuffle(qts);
-		qts = qts.subList(0, 10); // gives only 10 questions
+		if (qts.size() >= 10)
+			qts = qts.subList(0, 10); // gives only 10 questions
 		List<QuestionModel> lt = new ArrayList<>();
 		for (Question question : qts) {
 			QuestionModel qm = new QuestionModel();
@@ -42,6 +43,24 @@ public class QuizServiceImpl implements IQuizService {
 	@Override
 	public List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds) {
 		return dao.getAnswerList(qstIds);
+	}
+
+	@Override
+	public List<QuestionModel> getQuestionsBySubject(Integer subId) {
+		List<Question> qts = dao.getQuestionbySubject(subId);
+		Collections.shuffle(qts);
+		if (qts.size() >= 10)
+			qts = qts.subList(0, 10); // gives only 10 questions
+		List<QuestionModel> lt = new ArrayList<>();
+		for (Question question : qts) {
+			QuestionModel qm = new QuestionModel();
+			qm.setQuestionId(question.getQuestionId());
+			qm.setQuestion(question.getQuestion());
+			String[] o = { question.getOption1(), question.getOption2(), question.getOption3(), question.getOption4() };
+			qm.setOptions(o);
+			lt.add(qm);
+		}
+		return lt;
 	}
 
 }

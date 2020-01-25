@@ -1,6 +1,5 @@
 package com.cdac.irp.dao;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.cdac.irp.models.AnswerRequestModel;
 import com.cdac.irp.models.AnswerResponseModel;
 import com.cdac.irp.pojos.Question;
+import com.cdac.irp.pojos.Subject;
 
 @Repository
 public class QuizDaoImpl implements IQuizDao {
@@ -74,6 +74,30 @@ public class QuizDaoImpl implements IQuizDao {
 		}
 		System.out.println(answers);
 		return answers;
+	}
+
+	@Override
+	public List<Question> getQuestionbySubject(Integer subId) {
+		Subject subject = entityManager.unwrap(Session.class).load(Subject.class, subId);
+		String jpql = "SElECT q.questionId, q.question, q.option1, q.option2, q.option3, q.option4 FROM Question AS q WHERE q.subject.subjectId= :sid";
+		List<Object[]> olt = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class)
+				.setParameter("sid", subject.getSubjectId()).getResultList();
+		// System.out.println(olt);
+		List<Question> lt = new ArrayList<>();
+		for (Object[] oa : olt) {
+			Question q = new Question();
+			int i = 0;
+			q.setQuestionId((Integer) oa[i++]);
+			q.setQuestion((String) oa[i++]);
+			q.setOption1((String) oa[i++]);
+			q.setOption2((String) oa[i++]);
+			q.setOption3((String) oa[i++]);
+			q.setOption4((String) oa[i++]);
+			// System.out.println(q);
+			lt.add(q);
+		}
+		// System.out.println(lt);
+		return lt;
 	}
 
 }
