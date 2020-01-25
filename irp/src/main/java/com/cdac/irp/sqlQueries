@@ -2,6 +2,7 @@ insert into course (course_name) values ('dac');
 insert into course (course_name) values ('dbda'); 
 insert into course (course_name) values ('desd');
 insert into course (course_name) values ('diot');
+insert into course (course_name) values ('general');
 
 select * from course;
 
@@ -87,9 +88,10 @@ insert into time_table values(null,"Thursday","Python","Visual","Apti",2);
  insert into time_table values(null,"Friday","EC","Visual","Apti",2);
  
  
- insert into notice_board values(null, " Testing Quiz ", "Testing Quiz to be conducted on 25th January 2020 in ClassRoom 006 at 9 am.", "2020-01-22");
- insert into notice_board values(null, " MeanStack Quiz ", "Mean Stack Quiz to be conducted on 26th January 2020 in ClassRoom 006 from 3pm to 5pm.", "2020-01-22");
- insert into notice_board values(null, " Project Submission  ", " Project Submission will start from 29th January 2020. Contact your Project Coordinators.", "2020-01-24");
- insert into notice_board values(null, " Placements ", "Placement process will start by the first week of February.", "2020-01-22");
+ insert into notice_board values(null, " Testing Quiz ", "Testing Quiz to be conducted on 25th January 2020 in ClassRoom 006 at 9 am.", "2020-01-22",1);
+ insert into notice_board values(null, " MeanStack Quiz ", "Mean Stack Quiz to be conducted on 26th January 2020 in ClassRoom 006 from 3pm to 5pm.", "2020-01-22",1);
+ insert into notice_board values(null, " General Announcement : Project Submission  ", " Project Submission will start from 29th January 2020. Contact your Project Coordinators.", "2020-01-24",5);
+ insert into notice_board values(null, " General Announcement :  Placements ", "Placement process will start by the first week of February.", "2020-01-22",5);
+ 
  
 

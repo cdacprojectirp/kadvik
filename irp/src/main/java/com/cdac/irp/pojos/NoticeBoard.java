@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class NoticeBoard {
@@ -14,11 +18,17 @@ public class NoticeBoard {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int noticeId;
 	
+	@OneToOne
+	@JoinColumn(name="courseId")
+	@JsonIgnore
+	private Course course;
+	
 	private String notice;
 	private Date noticeDate;
 	private String heading;
 
 	public NoticeBoard() {
+		super();
 		System.out.println("in noticeboard pojo");
 	}
 	
@@ -32,6 +42,14 @@ public class NoticeBoard {
 
 	
 	
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
 
 	public String getHeading() {
 		return heading;
@@ -67,9 +85,11 @@ public class NoticeBoard {
 
 	@Override
 	public String toString() {
-		return "NoticeBoard [noticeId=" + noticeId + ", notice=" + notice + ", noticeDate=" + noticeDate + ", heading="
-				+ heading + "]";
+		return "NoticeBoard [noticeId=" + noticeId + ", course=" + course + ", notice=" + notice + ", noticeDate="
+				+ noticeDate + ", heading=" + heading + "]";
 	}
+
+	
 
 	
 	
