@@ -5,6 +5,6 @@ import com.cdac.irp.pojos.NoticeBoard;
 
 public interface INoticeBoard {
 
-	List<NoticeBoard> getNoticeBoard();
+	List<NoticeBoard> getNoticeBoard(Integer page);
 	
 }

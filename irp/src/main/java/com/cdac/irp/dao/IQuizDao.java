@@ -2,7 +2,8 @@ package com.cdac.irp.dao;
 
 import java.util.List;
 
-import com.cdac.irp.models.AnswerModel;
+import com.cdac.irp.models.AnswerRequestModel;
+import com.cdac.irp.models.AnswerResponseModel;
 import com.cdac.irp.pojos.Question;
 
 public interface IQuizDao {
@@ -11,6 +12,8 @@ public interface IQuizDao {
 	
 	List<Question> getQuestionList();
 	
-	List<AnswerModel> getAnswerList();
+	List<AnswerResponseModel> getAnswerList(List<AnswerRequestModel> qstIds);
+
+	List<Question> getQuestionbySubject(Integer subId);
 	
 }

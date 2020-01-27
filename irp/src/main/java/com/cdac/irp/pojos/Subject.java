@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Subject {
 	@Id
@@ -13,13 +15,16 @@ public class Subject {
 
 	private String subjectName;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "course_id")
 	private Course course;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "subject")
 	private List<Question> questions = new ArrayList<Question>();
 
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "faculty_id")
 	private Faculty faculty;
@@ -69,4 +74,11 @@ public class Subject {
 		this.questions = questions;
 	}
 
+	@Override
+	public String toString() {
+		return "Subject [subjectId=" + subjectId + ", subjectName=" + subjectName + ", course=" + course
+				+ ", questions=" + questions + ", faculty=" + faculty + "]";
+	}
+
+	
 }

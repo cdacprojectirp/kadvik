@@ -12,4 +12,7 @@ public interface IStudentDao {
 	List<Student> getAllStudents();
 
 	void Registration(StudentRegisterRequestModel regStudent);
+	
+	//CRUD
+	Student getStudentByPrn(Integer prn);
 }
