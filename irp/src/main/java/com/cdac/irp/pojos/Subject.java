@@ -74,11 +74,5 @@ public class Subject {
 		this.questions = questions;
 	}
 
-	@Override
-	public String toString() {
-		return "Subject [subjectId=" + subjectId + ", subjectName=" + subjectName + ", course=" + course
-				+ ", questions=" + questions + ", faculty=" + faculty + "]";
-	}
-
 	
 }
