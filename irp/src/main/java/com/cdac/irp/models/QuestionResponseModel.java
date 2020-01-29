@@ -1,13 +1,13 @@
 package com.cdac.irp.models;
 
-public class QuestionModel {
+public class QuestionResponseModel {
 
 	private Integer questionId;
 	private String question;
 	private String[] options;
 	private String answer;
 
-	public QuestionModel() {
+	public QuestionResponseModel() {
 		System.out.println("in question model");
 	}
 

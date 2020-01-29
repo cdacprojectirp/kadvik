@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.cdac.irp.models.AnswerRequestModel;
 import com.cdac.irp.models.AnswerResponseModel;
-import com.cdac.irp.models.QuestionModel;
+import com.cdac.irp.models.QuestionResponseModel;
 
 public interface IQuizService {
-	List<QuestionModel> getTenQuestionList();
+	List<QuestionResponseModel> getTenQuestionList();
 	List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds);
-	List<QuestionModel> getQuestionsBySubject(Integer subId);
+	List<QuestionResponseModel> getQuestionsBySubject(Integer subId);
 }
