@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.irp.models.AnswerRequestModel;
 import com.cdac.irp.models.AnswerResponseModel;
-import com.cdac.irp.models.QuestionModel;
+import com.cdac.irp.models.QuestionRequestModel;
+import com.cdac.irp.models.QuestionResponseModel;
 import com.cdac.irp.models.SubjectRequestModel;
 import com.cdac.irp.service.IQuizService;
 
@@ -32,13 +33,13 @@ public class QuizController {
 	}
 
 	@GetMapping("/quiz")
-	public List<QuestionModel> getExamQuestions() {
+	public List<QuestionResponseModel> getExamQuestions() {
 		return service.getTenQuestionList();
 	}
 
 
 	@PostMapping("/quiz/subject")
-	public List<QuestionModel> getExamQuestionsBySubject(@RequestBody SubjectRequestModel _request) {
+	public List<QuestionResponseModel> getExamQuestionsBySubject(@RequestBody SubjectRequestModel _request) {
 		return service.getQuestionsBySubject(_request.getSubjectId());
 	}
 	
@@ -46,6 +47,12 @@ public class QuizController {
 	@PostMapping("/answers")
 	public List<AnswerResponseModel> getExamAnswers(@RequestBody List<AnswerRequestModel> qstIds) {
 		return service.getAnswersList(qstIds);
+	}
+	
+	@PostMapping("/question")
+	public void putExamQuestion(@RequestBody QuestionRequestModel _request)
+	{
+		
 	}
 
 }

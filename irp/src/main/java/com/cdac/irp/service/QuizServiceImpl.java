@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.cdac.irp.dao.IQuizDao;
 import com.cdac.irp.models.AnswerRequestModel;
 import com.cdac.irp.models.AnswerResponseModel;
-import com.cdac.irp.models.QuestionModel;
+import com.cdac.irp.models.QuestionResponseModel;
 import com.cdac.irp.pojos.Question;
 
 @Service
@@ -20,7 +20,7 @@ public class QuizServiceImpl implements IQuizService {
 	private IQuizDao dao;
 
 	@Override
-	public List<QuestionModel> getTenQuestionList(/*
+	public List<QuestionResponseModel> getTenQuestionList(/*
 													 * add course id parameter later on and student id for randomizer
 													 * seed
 													 */) {
@@ -28,9 +28,9 @@ public class QuizServiceImpl implements IQuizService {
 		Collections.shuffle(qts);
 		if (qts.size() >= 10)
 			qts = qts.subList(0, 10); // gives only 10 questions
-		List<QuestionModel> lt = new ArrayList<>();
+		List<QuestionResponseModel> lt = new ArrayList<>();
 		for (Question question : qts) {
-			QuestionModel qm = new QuestionModel();
+			QuestionResponseModel qm = new QuestionResponseModel();
 			qm.setQuestionId(question.getQuestionId());
 			qm.setQuestion(question.getQuestion());
 			String[] o = { question.getOption1(), question.getOption2(), question.getOption3(), question.getOption4() };
@@ -46,14 +46,14 @@ public class QuizServiceImpl implements IQuizService {
 	}
 
 	@Override
-	public List<QuestionModel> getQuestionsBySubject(Integer subId) {
+	public List<QuestionResponseModel> getQuestionsBySubject(Integer subId) {
 		List<Question> qts = dao.getQuestionbySubject(subId);
 		Collections.shuffle(qts);
 		if (qts.size() >= 10)
 			qts = qts.subList(0, 10); // gives only 10 questions
-		List<QuestionModel> lt = new ArrayList<>();
+		List<QuestionResponseModel> lt = new ArrayList<>();
 		for (Question question : qts) {
-			QuestionModel qm = new QuestionModel();
+			QuestionResponseModel qm = new QuestionResponseModel();
 			qm.setQuestionId(question.getQuestionId());
 			qm.setQuestion(question.getQuestion());
 			String[] o = { question.getOption1(), question.getOption2(), question.getOption3(), question.getOption4() };
