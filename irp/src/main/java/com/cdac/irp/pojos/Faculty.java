@@ -22,7 +22,7 @@ public class Faculty {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "faculty")
-	private List<Subject> subject= new ArrayList<>();
+	private List<Subject> subject = new ArrayList<>();
 	
 
 	public Faculty() {

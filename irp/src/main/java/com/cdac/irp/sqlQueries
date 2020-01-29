@@ -64,15 +64,6 @@ insert into question (subject_id, question ,option1, option2, option3, option4, 
 insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select r', 'p', 'q', 'r', 's', 3);
 insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select s', 'p', 'q', 'r', 's', 4);
 
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select p2', 'p', 'q', 'r', 's', 1);
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select q2', 'p', 'q', 'r', 's', 2);
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select r2', 'p', 'q', 'r', 's', 3);
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select s2', 'p', 'q', 'r', 's', 4);
-
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select p3', 'p', 'q', 'r', 's', 1);
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select q3', 'p', 'q', 'r', 's', 2);
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select r3', 'p', 'q', 'r', 's', 3);
-insert into question (subject_id, question ,option1, option2, option3, option4, answer) values (2, 'Select s3', 'p', 'q', 'r', 's', 4);
 
 select * from question;
 

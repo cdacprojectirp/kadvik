@@ -42,7 +42,7 @@ public class StudentController {
 	public ResponseEntity<?> Authenticate(@RequestBody StudentAuthenticateRequestModel _s) {
 		Integer prn = service.Authenticate(_s.getEmail(), MD5.getMd5(_s.getPassword()));
 		if (prn == null)
-			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<Boolean>(false,HttpStatus.OK);
 		return new ResponseEntity<Integer>(prn, HttpStatus.OK);
 	}
 
