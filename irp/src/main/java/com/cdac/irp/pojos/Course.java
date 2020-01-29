@@ -5,18 +5,22 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int courseId;
-	String courseName;
+	private Integer courseId;
+	private String courseName;
 	
 
-
+	
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Subject> subjects = new ArrayList<Subject>();
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "course")
 	private List<Student> students = new ArrayList<Student>();
 
@@ -24,23 +28,19 @@ public class Course {
 		System.out.println("in course pojo");
 	}
 
-
-	public Course(int courseId, String courseName,  List<Subject> subjects,
-			List<Student> students) {
+	public Course(Integer courseId, String courseName, List<Subject> subjects, List<Student> students) {
 		super();
 		this.courseId = courseId;
 		this.courseName = courseName;
-		//this.timeTable = timeTable;
 		this.subjects = subjects;
 		this.students = students;
 	}
 
-
-	public int getCourseId() {
+	public Integer getCourseId() {
 		return courseId;
 	}
 
-	public void setCourseId(int courseId) {
+	public void setCourseId(Integer courseId) {
 		this.courseId = courseId;
 	}
 
@@ -67,24 +67,5 @@ public class Course {
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
-
-
-
-//	public TimeTable getTimeTable() {
-//		return timeTable;
-//	}
-//
-//
-//	public void setTimeTable(TimeTable timeTable) {
-//		this.timeTable = timeTable;
-//	}
-
-	@Override
-	public String toString() {
-		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", subjects=" + subjects + "]";
-	}
-	
-	
-
 
 }

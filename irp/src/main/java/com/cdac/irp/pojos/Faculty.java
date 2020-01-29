@@ -2,6 +2,8 @@ package com.cdac.irp.pojos;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Faculty {
 	@Id
@@ -11,6 +13,7 @@ public class Faculty {
 	private Double salary;
 	private Integer experience;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "faculty")
 	private Subject subject;
 	
