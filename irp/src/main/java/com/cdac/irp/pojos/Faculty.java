@@ -1,6 +1,13 @@
 package com.cdac.irp.pojos;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -14,8 +21,8 @@ public class Faculty {
 	private Integer experience;
 
 	@JsonIgnore
-	@OneToOne(mappedBy = "faculty")
-	private Subject subject;
+	@OneToMany(mappedBy = "faculty")
+	private List<Subject> subject= new ArrayList<>();
 	
 
 	public Faculty() {
@@ -28,7 +35,6 @@ public class Faculty {
 		this.facultyName = facultyName;
 		this.salary = salary;
 		this.experience = experience;
-		this.subject = subject;
 	}
 
 	public Integer getFacultyId() {
@@ -63,18 +69,12 @@ public class Faculty {
 		this.experience = experience;
 	}
 
-	public Subject getSubject() {
+	public List<Subject> getSubject() {
 		return subject;
 	}
 
-	public void setSubject(Subject subject) {
+	public void setSubject(List<Subject> subject) {
 		this.subject = subject;
-	}
-
-	@Override
-	public String toString() {
-		return "Faculty [facultyId=" + facultyId + ", facultyName=" + facultyName + ", salary=" + salary
-				+ ", experience=" + experience + ", subject=" + subject + "]";
 	}
 	
 	

@@ -21,7 +21,7 @@ public class SubjectDaoImpl implements ISubjectDao {
 	public List<Subject> getAllSubjects(Integer prn) {
 		Student s = entityManager.unwrap(Session.class).load(Student.class, prn);
 		Integer cId = s.getCourse().getCourseId();
-
+	
 		String jpql = "select s from Subject s where s.course.courseId=:cid";
 
 		List<Subject> subjects = entityManager.unwrap(Session.class).createQuery(jpql, Subject.class)
