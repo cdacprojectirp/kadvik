@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cdac.irp.dao.ITimeTableDao;
+import com.cdac.irp.models.TimeTableUpdateRequestModel;
 import com.cdac.irp.pojos.TimeTable;
 
 @Service
@@ -22,6 +23,18 @@ public class TimeTableServiceImpl implements ITimeTable {
 	{
 		
 		return dao.getTimeTable(data);
+	}
+	
+	@Override
+	public  List<TimeTable> getTimeTableAdmin(Integer courseId)
+	{
+		
+		return dao.getTimeTableAdmin(courseId);
+	}
+
+	@Override
+	public List<TimeTableUpdateRequestModel> updateTimeTable(List<TimeTableUpdateRequestModel> _request) {
+		return dao.updateTimeTable(_request);
 	}
 
 }

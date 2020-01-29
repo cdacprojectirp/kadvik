@@ -24,6 +24,7 @@ public class TimeTable{
 //	private TimeTableId id;
 	@OneToOne
 	@JoinColumn(name="courseId")
+	@JsonIgnore
 	private Course courseId;
 	
 	@Id
