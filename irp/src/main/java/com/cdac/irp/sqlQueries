@@ -1,8 +1,12 @@
+insert into course (course_name) values ('general');
 insert into course (course_name) values ('dac'); 
 insert into course (course_name) values ('dbda'); 
 insert into course (course_name) values ('desd');
 insert into course (course_name) values ('diot');
-insert into course (course_name) values ('general');
+insert into course (course_name) values ('hpca');
+insert into course (course_name) values ('dai');
+insert into course (course_name) values ('ditis');
+
 
 select * from course;
 

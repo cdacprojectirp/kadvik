@@ -25,7 +25,6 @@ public class NoticeBoardController {
 	
 	@GetMapping("/getNoticeBoard")
 	public List<NoticeBoard> getNoticeBoard(@RequestParam Integer page){
-		System.out.println("in noticeboard controller");
 		return service.getNoticeBoard(page);
 	}
 	

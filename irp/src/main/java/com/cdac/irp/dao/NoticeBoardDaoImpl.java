@@ -27,9 +27,16 @@ public class NoticeBoardDaoImpl implements INoticeBoardDao {
 		
 		Integer couId = s.getCourse().getCourseId();
 		
-		String jpql = "SELECT n FROM NoticeBoard n WHERE n.course.courseId = :cid OR n.course.courseId = 5";
+		String course_jpql = "Select c from Course c where c.courseName='general'";
 		
-		List<NoticeBoard> list= entityManager.unwrap(Session.class).createQuery(jpql, NoticeBoard.class).setParameter("cid",couId).getResultList();
+		Course c = entityManager.unwrap(Session.class).createQuery(course_jpql, Course.class).getSingleResult();
+		
+		Integer generalId = c.getCourseId();
+		
+		
+		String jpql = "SELECT n FROM NoticeBoard n WHERE n.course.courseId = :cid OR n.course.courseId = :gId";
+		
+		List<NoticeBoard> list= entityManager.unwrap(Session.class).createQuery(jpql, NoticeBoard.class).setParameter("cid",couId).setParameter("gId",generalId).getResultList();
 		
 		return list;
 
