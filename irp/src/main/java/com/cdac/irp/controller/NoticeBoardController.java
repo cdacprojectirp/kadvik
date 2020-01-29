@@ -17,13 +17,13 @@ import com.cdac.irp.service.INoticeBoard;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/student")
+@RequestMapping("/api/noticeboard")
 public class NoticeBoardController {
 	
 	@Autowired
 	private INoticeBoard service;
 	
-	@GetMapping("/getNoticeBoard")
+	@GetMapping("/getnoticeboard")
 	public List<NoticeBoard> getNoticeBoard(@RequestParam Integer page){
 		return service.getNoticeBoard(page);
 	}
