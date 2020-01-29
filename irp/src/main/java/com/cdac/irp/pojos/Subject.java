@@ -25,7 +25,7 @@ public class Subject {
 	private List<Question> questions = new ArrayList<Question>();
 
 	@JsonIgnore
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "faculty_id")
 	private Faculty faculty;
 	
