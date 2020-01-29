@@ -7,9 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.cdac.irp.models.CourseGetResponseModel;
+import com.cdac.irp.models.StudentPrnModel;
+import com.cdac.irp.pojos.Course;
 import com.cdac.irp.service.ICourseService;
 
 @RestController
@@ -28,6 +33,11 @@ public class CourseController {
 		}
 		return new ResponseEntity<List<CourseGetResponseModel>>(f, HttpStatus.OK);
 		
+	}
+	
+	@PostMapping("/getCourseByStudentPrn")
+	public Course getCourseByStudentPrn(@RequestBody StudentPrnModel _request){
+		return service.getCourseByStudentPrn(_request.getPrn());
 	}
 	
 }
