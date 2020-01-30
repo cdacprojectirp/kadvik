@@ -17,6 +17,7 @@ import com.cdac.irp.models.AnswerResponseModel;
 import com.cdac.irp.models.QuestionRequestModel;
 import com.cdac.irp.models.QuestionResponseModel;
 import com.cdac.irp.models.SubjectRequestModel;
+import com.cdac.irp.pojos.Question;
 import com.cdac.irp.service.IQuizService;
 
 @RestController
@@ -37,22 +38,19 @@ public class QuizController {
 		return service.getTenQuestionList();
 	}
 
-
 	@PostMapping("/quiz/subject")
-	public List<QuestionResponseModel> getExamQuestionsBySubject(@RequestBody SubjectRequestModel _request) {
-		return service.getQuestionsBySubject(_request.getSubjectId());
+	public List<QuestionResponseModel> getExamQuestionsBySubject(@RequestBody SubjectRequestModel _requestSubject) {
+		return service.getQuestionsBySubject(_requestSubject.getSubjectId());
 	}
-	
-	
+
 	@PostMapping("/answers")
 	public List<AnswerResponseModel> getExamAnswers(@RequestBody List<AnswerRequestModel> qstIds) {
 		return service.getAnswersList(qstIds);
 	}
-	
+
 	@PostMapping("/question")
-	public void putExamQuestion(@RequestBody QuestionRequestModel _request)
-	{
-		
+	public Question putExamQuestion(@RequestBody QuestionRequestModel _requestQuestion) {
+		return service.putQuestion(_requestQuestion);
 	}
 
 }

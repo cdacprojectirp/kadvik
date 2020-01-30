@@ -1,4 +1,4 @@
-package com.cdac.irp.service;
+package com.cdac.irp.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

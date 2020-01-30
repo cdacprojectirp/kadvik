@@ -16,6 +16,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table
 public class Student {
@@ -72,6 +74,16 @@ public class Student {
 
 	public Student() {
 		System.out.println("in student pojo");
+	}
+	
+	public Student(String firstName, String lastName, String email, String password, Date birthDate, Course course) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.birthDate = birthDate;
+		this.course = course;
 	}
 
 	public Student(Integer prn, String firstName, String lastName, String email, String password, Date birthDate,

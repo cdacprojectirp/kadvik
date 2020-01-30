@@ -8,10 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cdac.irp.dao.IQuizDao;
+import com.cdac.irp.dao.IQuizJpaDao;
+import com.cdac.irp.dao.ISubjectDao;
 import com.cdac.irp.models.AnswerRequestModel;
 import com.cdac.irp.models.AnswerResponseModel;
+import com.cdac.irp.models.QuestionRequestModel;
 import com.cdac.irp.models.QuestionResponseModel;
 import com.cdac.irp.pojos.Question;
+import com.cdac.irp.pojos.Subject;
 
 @Service
 public class QuizServiceImpl implements IQuizService {
@@ -19,11 +23,17 @@ public class QuizServiceImpl implements IQuizService {
 	@Autowired
 	private IQuizDao dao;
 
+	@Autowired
+	private IQuizJpaDao jpaDao;
+
+	@Autowired
+	private ISubjectDao subDao;
+
 	@Override
 	public List<QuestionResponseModel> getTenQuestionList(/*
-													 * add course id parameter later on and student id for randomizer
-													 * seed
-													 */) {
+															 * add course id parameter later on and student id for
+															 * randomizer seed
+															 */) {
 		List<Question> qts = dao.getQuestionList();
 		Collections.shuffle(qts);
 		if (qts.size() >= 10)
@@ -61,6 +71,20 @@ public class QuizServiceImpl implements IQuizService {
 			lt.add(qm);
 		}
 		return lt;
+	}
+
+	@Override
+	public Question putQuestion(QuestionRequestModel qst) {
+		Subject subject = subDao.getSubject(qst.getSubjectId());
+		Question q= new Question();
+		q.setSubject(subject);
+		q.setQuestion(qst.getQuestion());
+		q.setOption1(qst.getOption1());
+		q.setOption2(qst.getOption2());
+		q.setOption3(qst.getOption3());
+		q.setOption4(qst.getOption4());
+		q.setAnswer(qst.getAnswer());
+		return jpaDao.save(q);
 	}
 
 }

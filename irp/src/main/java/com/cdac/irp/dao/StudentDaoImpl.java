@@ -1,5 +1,6 @@
 package com.cdac.irp.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.cdac.irp.MD5;
 import com.cdac.irp.models.StudentRegisterRequestModel;
+import com.cdac.irp.pojos.Course;
 import com.cdac.irp.pojos.Student;
 
 @Repository
@@ -40,15 +42,15 @@ public class StudentDaoImpl implements IStudentDao {
 	}
 
 	@Override
-	public void Registration(StudentRegisterRequestModel regStudent) {
+	public StudentRegisterRequestModel Registration(StudentRegisterRequestModel regStudent) {
 
-		String jpql = "Insert into Student (prn,first_name,last_name,email,password,birth_date) values (?,?,?,?,?,?)";
-		entityManager.createNativeQuery(jpql).setParameter(1, regStudent.getPrn())
-				.setParameter(2, regStudent.getFirstName()).setParameter(3, regStudent.getLastName())
-				.setParameter(4, regStudent.getEmail()).setParameter(5, MD5.getMd5(regStudent.getPassword()))
-				.setParameter(6, regStudent.getBirthDate()).executeUpdate();
-
-		System.out.println(regStudent);
+		Course course = entityManager.unwrap(Session.class).load(Course.class, regStudent.getCourseId());
+	
+		Student student = new Student(regStudent.getFirstName(),regStudent.getLastName(),
+							regStudent.getEmail(),MD5.getMd5(regStudent.getPassword()),
+							regStudent.getBirthDate(),course);
+		entityManager.unwrap(Session.class).save(student);
+		return regStudent;
 	}
 
 	@Override
