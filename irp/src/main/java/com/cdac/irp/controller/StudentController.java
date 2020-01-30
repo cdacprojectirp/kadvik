@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.irp.MD5;
@@ -36,6 +37,11 @@ public class StudentController {
 	@GetMapping("/getall")
 	public List<Student> getAll() {
 		return service.getAllStudents();
+	}
+	
+	@GetMapping("/getstudentbyprn")
+	public Student getStudent(@RequestParam Integer prn){
+		return service.getStudentByPrn(prn);
 	}
 
 	@PostMapping("/authenticate")
