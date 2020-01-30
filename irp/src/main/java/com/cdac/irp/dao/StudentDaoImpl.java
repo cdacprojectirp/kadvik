@@ -51,11 +51,10 @@ public class StudentDaoImpl implements IStudentDao {
 		System.out.println(regStudent);
 	}
 
-
-	//CRUD
 	@Override
 	public Student getStudentByPrn(Integer prn) {
-		return entityManager.unwrap(Session.class).load(Student.class, prn);
+		String jpql = "select s from Student s where s.prn=:pn";
+		return entityManager.unwrap(Session.class).createQuery(jpql, Student.class).setParameter("pn", prn).getSingleResult();
 	}
 
 }

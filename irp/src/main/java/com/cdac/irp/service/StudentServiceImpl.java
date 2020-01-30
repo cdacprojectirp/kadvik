@@ -33,4 +33,9 @@ public class StudentServiceImpl implements IStudentService {
 
 	}
 
+	@Override
+	public Student getStudentByPrn(Integer prn) {
+		return dao.getStudentByPrn(prn);
+	}
+
 }
