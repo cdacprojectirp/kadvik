@@ -22,12 +22,17 @@ public class SubjectDaoImpl implements ISubjectDao {
 		Student s = entityManager.unwrap(Session.class).load(Student.class, prn);
 		Integer cId = s.getCourse().getCourseId();
 	
-		String jpql = "select s from Subject s where s.course.courseId=:cid";
+		String jpql = "SELECT s FROM Subject s WHERE s.course.courseId=:cid";
 
 		List<Subject> subjects = entityManager.unwrap(Session.class).createQuery(jpql, Subject.class)
 				.setParameter("cid", cId).getResultList();
 
 		return subjects;
+	}
+
+	@Override
+	public Subject getSubject(Integer subjectId) {
+		return entityManager.unwrap(Session.class).load(Subject.class, subjectId);
 	}
 
 }

@@ -8,8 +8,8 @@ public class QuestionRequestModel {
 	private String option2;
 	private String option3;
 	private String option4;
-	private String answer;
-	
+	private Integer answer;
+
 	public QuestionRequestModel() {
 		System.out.println("question request model");
 	}
@@ -70,11 +70,11 @@ public class QuestionRequestModel {
 		this.option4 = option4;
 	}
 
-	public String getAnswer() {
+	public Integer getAnswer() {
 		return answer;
 	}
 
-	public void setAnswer(String answer) {
+	public void setAnswer(Integer answer) {
 		this.answer = answer;
 	}
 }
