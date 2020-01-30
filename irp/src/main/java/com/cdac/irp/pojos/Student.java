@@ -1,6 +1,8 @@
 package com.cdac.irp.pojos;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,11 +42,33 @@ public class Student {
 	@JoinColumn(name = "course_id")
 	private Course course;
 	
+	@OneToMany(mappedBy="stud")
+	private List<Posts> posts = new ArrayList<Posts>(); 
+	
+	@OneToMany(mappedBy="stud")
+	private List<Comments> comments = new ArrayList<Comments>(); 
+	
 	//@OneToOne(mappedBy = "student")
 	//private Result result;
 	
 	//@OneToOne
 	//private PKStudentSubject result;
+
+	public List<Posts> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Posts> posts) {
+		this.posts = posts;
+	}
+
+	public List<Comments> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comments> comments) {
+		this.comments = comments;
+	}
 
 	public Student() {
 		System.out.println("in student pojo");
