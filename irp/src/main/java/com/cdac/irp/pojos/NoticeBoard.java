@@ -26,6 +26,15 @@ public class NoticeBoard {
 	private String notice;
 	private Date noticeDate;
 	private String heading;
+	private String color;
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
 
 	public NoticeBoard() {
 		super();
@@ -74,24 +83,5 @@ public class NoticeBoard {
 	public void setNotice(String notice) {
 		this.notice = notice;
 	}
-
-	public NoticeBoard(int noticeId, String notice, Date noticeDate, String heading) {
-		super();
-		this.noticeId = noticeId;
-		this.notice = notice;
-		this.noticeDate = noticeDate;
-		this.heading = heading;
-	}
-
-	@Override
-	public String toString() {
-		return "NoticeBoard [noticeId=" + noticeId + ", course=" + course + ", notice=" + notice + ", noticeDate="
-				+ noticeDate + ", heading=" + heading + "]";
-	}
-
-	
-
-	
-	
 	
 }

@@ -13,6 +13,5 @@ public interface IStudentDao {
 
 	StudentRegisterRequestModel Registration(StudentRegisterRequestModel regStudent);
 	
-	//CRUD
 	Student getStudentByPrn(Integer prn);
 }

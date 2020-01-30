@@ -13,4 +13,5 @@ public interface IStudentService {
 
 	StudentRegisterRequestModel RegisterStudent(StudentRegisterRequestModel _student);
 
+	Student getStudentByPrn(Integer prn);
 }

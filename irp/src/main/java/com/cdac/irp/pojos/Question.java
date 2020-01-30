@@ -2,6 +2,8 @@ package com.cdac.irp.pojos;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table
 public class Question {
@@ -16,7 +18,8 @@ public class Question {
 	private String option3;
 	private String option4;
 	private Integer answer;
-
+	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "subject_id")
 	private Subject subject;
