@@ -3,21 +3,29 @@ package com.cdac.irp.models;
 import java.sql.Date;
 
 public class StudentRegisterRequestModel {
-	private String prn;
-
-	public String getPrn() {
-		return prn;
-	}
-
-	public void setPrn(String prn) {
-		this.prn = prn;
-	}
-
+	private Integer prn;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
 	private Date birthDate;
+	private Integer courseId;
+
+	public Integer getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(Integer courseId) {
+		this.courseId = courseId;
+	}
+
+	public Integer getPrn() {
+		return prn;
+	}
+
+	public void setPrn(Integer prn) {
+		this.prn = prn;
+	}
 
 	public String getFirstName() {
 		return firstName;

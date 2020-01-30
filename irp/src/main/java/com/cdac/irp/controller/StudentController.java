@@ -47,7 +47,7 @@ public class StudentController {
 	}
 
 	@PostMapping("/register")
-	public void Register(@RequestBody StudentRegisterRequestModel _student) {
-		service.RegisterStudent(_student);
+	public StudentRegisterRequestModel Register(@RequestBody StudentRegisterRequestModel _student) {
+		return service.RegisterStudent(_student);
 	}
 }

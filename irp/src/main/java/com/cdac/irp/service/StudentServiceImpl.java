@@ -28,8 +28,8 @@ public class StudentServiceImpl implements IStudentService {
 	}
 
 	@Override
-	public void RegisterStudent(StudentRegisterRequestModel _student) {
-		dao.Registration(_student);
+	public StudentRegisterRequestModel RegisterStudent(StudentRegisterRequestModel _student) {
+		return dao.Registration(_student);
 
 	}
 
