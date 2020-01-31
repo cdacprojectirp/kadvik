@@ -10,6 +10,7 @@ import com.cdac.irp.dao.IResultJpaDao;
 import com.cdac.irp.dao.IStudentDao;
 import com.cdac.irp.dao.ISubjectDao;
 import com.cdac.irp.models.ResultRequestModel;
+import com.cdac.irp.models.ResultResponseModel;
 import com.cdac.irp.pojos.PKStudentSubject;
 import com.cdac.irp.pojos.Result;
 import com.cdac.irp.pojos.Student;
@@ -26,7 +27,7 @@ public class ResultServiceImpl implements IResultService {
 	private ISubjectDao subDao;
 
 	@Override
-	public void submitResult(ResultRequestModel resModel) throws Exception{
+	public void submitResult(ResultRequestModel resModel) throws Exception {
 		Student stu = stuDao.getStudentByPrn(resModel.getPrn());
 		Subject sub = subDao.getSubject(resModel.getSubjectId());
 		PKStudentSubject result_id = new PKStudentSubject();
@@ -42,13 +43,13 @@ public class ResultServiceImpl implements IResultService {
 	}
 
 	@Override
-	public List<Result> getResultlist(Integer subjectId) throws Exception{
+	public List<Result> getResultlist(Integer subjectId) throws Exception {
 		Subject sub = subDao.getSubject(subjectId);
 		return jpaDao.findResultsBySubject(sub);
 	}
 
 	@Override
-	public List<Student> getTopperBySubject(Integer subjectId) throws Exception{
+	public List<Student> getTopperBySubject(Integer subjectId) throws Exception {
 		Subject sub = subDao.getSubject(subjectId);
 		Result res = jpaDao.findTopBySubjectOrderByMarksDesc(sub);
 		List<Result> results = jpaDao.findAllByMarks(res.getMarks());
@@ -60,16 +61,25 @@ public class ResultServiceImpl implements IResultService {
 	}
 
 	@Override
-	public Student getTopperByCourse(Integer courseId) throws Exception{
+	public Student getTopperByCourse(Integer courseId) throws Exception {
 		// System.out.println(jpaDao.findTopByOrderByMarksDesc());
 		return null;
 	}
 
 	@Override
-	public List<Result> getResultsByPrn(Integer prn) throws Exception{
+	public List<ResultResponseModel> getResultsByPrn(Integer prn) throws Exception {
 		Student stu = stuDao.getStudentByPrn(prn);
-		List<Result> report = jpaDao.findResultsByStudent(stu);
-		return report;
+		List<Result> reports = jpaDao.findResultsByStudent(stu);
+		List<ResultResponseModel> respReport = new ArrayList<>();
+
+		for (Result result : reports) {
+			ResultResponseModel r = new ResultResponseModel();
+			r.setMarks(result.getMarks());
+			r.setSubjectName(result.getSubject().getSubjectName());
+			respReport.add(r);
+		}
+
+		return respReport;
 	}
 
 }

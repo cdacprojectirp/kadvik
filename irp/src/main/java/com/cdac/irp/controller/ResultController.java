@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.irp.models.ResultRequestModel;
+import com.cdac.irp.models.ResultResponseModel;
 import com.cdac.irp.models.StudentPrnModel;
 import com.cdac.irp.pojos.Result;
 import com.cdac.irp.pojos.Student;
@@ -87,7 +88,7 @@ public class ResultController {
 	}
 
 	@PostMapping("/report")
-	public List<Result> getStudentReport(@RequestBody StudentPrnModel student) {
+	public List<ResultResponseModel> getStudentReport(@RequestBody StudentPrnModel student) {
 		try {
 			return service.getResultsByPrn(student.getPrn());
 		} catch (Exception e) {
