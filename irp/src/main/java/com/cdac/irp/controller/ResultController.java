@@ -27,7 +27,9 @@ public class ResultController {
 
 	@PostMapping("/submit")
 	public void submitResult(@RequestBody ResultRequestModel _reqResult) {
-		service.submitResult(_reqResult);
+		if(_reqResult.getSubjectId()!=0) {
+			service.submitResult(_reqResult);
+		}
 	}
 
 	@GetMapping("/average")

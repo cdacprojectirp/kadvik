@@ -44,9 +44,11 @@ public class Student {
 	@JoinColumn(name = "course_id")
 	private Course course;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="stud")
 	private List<Posts> posts = new ArrayList<Posts>(); 
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="stud")
 	private List<Comments> comments = new ArrayList<Comments>(); 
 	
