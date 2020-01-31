@@ -39,7 +39,7 @@ public class PostDaoImpl implements IPostsDao  {
  
 	@Override // List of posts, limited to 3.
 	public List<PostsModelResponse> getFirstThreePosts() {
-		System.out.println("in ctr");
+	//	System.out.println("in ctr");
 		List<Posts> list = new ArrayList<Posts>();
 		String jpql = "Select p from Posts p ORDER BY p.postId DESC";
 		List<PostsModelResponse> postsmodel = new ArrayList<PostsModelResponse>();
@@ -53,7 +53,7 @@ public class PostDaoImpl implements IPostsDao  {
 	
 	@Override //All the posts are returned.
 	public List<PostsModelResponse> getAllPosts() {
-		System.out.println("in ctr");
+//		System.out.println("in ctr");
 		List<Posts> list = new ArrayList<Posts>();
 		String jpql = "Select p from Posts p";
 		List<PostsModelResponse> postsmodel = new ArrayList<PostsModelResponse>();

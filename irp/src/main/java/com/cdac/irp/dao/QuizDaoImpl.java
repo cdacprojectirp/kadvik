@@ -69,10 +69,10 @@ public class QuizDaoImpl implements IQuizDao {
 			AnswerResponseModel ans = new AnswerResponseModel();
 			ans.setQuestionId(q.getQuestionId());
 			ans.setAnswer(q.getAnswer());
-			System.out.println(ans);
+//			System.out.println(ans);
 			answers.add(ans);
 		}
-		System.out.println(answers);
+	//	System.out.println(answers);
 		return answers;
 	}
 

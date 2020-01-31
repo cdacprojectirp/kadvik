@@ -17,7 +17,7 @@ public class PKStudentSubject implements Serializable {
 	private Integer subjectId;
 
 	public PKStudentSubject() {
-		System.out.println("in pk student subject");
+//		System.out.println("in pk student subject");
 	}
 
 	public Integer getPrn() {

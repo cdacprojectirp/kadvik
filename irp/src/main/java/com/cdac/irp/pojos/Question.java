@@ -25,7 +25,7 @@ public class Question {
 	private Subject subject;
 
 	public Question() {
-		System.out.println("in question pojo");
+//		System.out.println("in question pojo");
 	}
 
 	public Question(Integer questionId, String question, String option1, String option2, String option3, String option4,

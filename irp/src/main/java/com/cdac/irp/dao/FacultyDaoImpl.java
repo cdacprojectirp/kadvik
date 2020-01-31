@@ -67,12 +67,7 @@ public class FacultyDaoImpl implements IFacultyDao {
 		return fl;
 	}
 
-	@Override
-	public void setFaculty(Faculty f) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 
 
 }

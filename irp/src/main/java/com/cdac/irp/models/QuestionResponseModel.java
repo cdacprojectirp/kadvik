@@ -8,7 +8,7 @@ public class QuestionResponseModel {
 	private String answer;
 
 	public QuestionResponseModel() {
-		System.out.println("in question model");
+//		System.out.println("in question model");
 	}
 
 	public Integer getQuestionId() {

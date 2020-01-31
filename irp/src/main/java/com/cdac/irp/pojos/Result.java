@@ -26,7 +26,7 @@ public class Result {
 	private Integer marks;
 
 	public Result() {
-		System.out.println("in result pojo");
+//		System.out.println("in result pojo");
 	}
 
 	public PKStudentSubject getResult_id() {

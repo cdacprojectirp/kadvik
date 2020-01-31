@@ -20,7 +20,7 @@ public class NoticeBoardServiceImpl implements INoticeBoard {
 	
 	@Override
 	public List<NoticeBoard> getNoticeBoard(Integer Data){
-		System.out.println("in noticeboard service");
+//		System.out.println("in noticeboard service");
 		return dao.getNoticeBoard(Data);
 	}
 

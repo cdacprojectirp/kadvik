@@ -31,7 +31,7 @@ public class Subject {
 	
 	
 	public Subject() {
-		System.out.println("in subject pojo");
+//		System.out.println("in subject pojo");
 	}
 
 	public Subject(Integer subjectId, String subjectName, Course course, List<Question> questions) {

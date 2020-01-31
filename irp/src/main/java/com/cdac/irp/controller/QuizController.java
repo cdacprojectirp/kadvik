@@ -30,7 +30,7 @@ public class QuizController {
 
 	@PostConstruct
 	public void init() {
-		System.out.println("in init " + service);
+		//System.out.println("in init " + service);
 	}
 
 	@GetMapping("/quiz")
