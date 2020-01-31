@@ -6,7 +6,7 @@ public class ResultRequestModel {
 	Integer Marks;
 
 	public ResultRequestModel() {
-		System.out.println("in Result req model");
+//		System.out.println("in Result req model");
 	}
 
 	public Integer getPrn() {

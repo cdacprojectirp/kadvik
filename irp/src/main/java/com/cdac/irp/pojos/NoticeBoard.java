@@ -38,7 +38,7 @@ public class NoticeBoard {
 
 	public NoticeBoard() {
 		super();
-		System.out.println("in noticeboard pojo");
+//		System.out.println("in noticeboard pojo");
 	}
 	
 	public Date getNoticeDate() {

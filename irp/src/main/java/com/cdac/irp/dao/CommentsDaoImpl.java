@@ -36,8 +36,8 @@ public class CommentsDaoImpl implements ICommentsDao{
 		Integer prn = c.getPrn();
 		Integer postId=c.getPostId();
 		String text = c.getCommentText();
-		System.out.println("prn"+prn);
-		System.out.println("postID"+postId);
+		//System.out.println("prn"+prn);
+		//System.out.println("postID"+postId);
 		Student student = entityManager.unwrap(Session.class).load(Student.class, prn);
 		Posts post = entityManager.unwrap(Session.class).load(Posts.class, postId);
 		PKComment pksf= new PKComment(prn, postId);
@@ -47,7 +47,7 @@ public class CommentsDaoImpl implements ICommentsDao{
 	
 	@Override //This will get only the first three comments converted to Comments M
 	public List<CommentsResponseModel> getFirstThreeComments(Integer postID) {
-		System.out.println("in ctr");
+		//System.out.println("in ctr");
 		Posts p = entityManager.unwrap(Session.class).load(Posts.class,postID);		
 		String jpql = "Select c from Comments c where c.post=:pId ";
 		System.out.println("post id"+postID);
@@ -62,10 +62,10 @@ public class CommentsDaoImpl implements ICommentsDao{
 	
 	@Override //This will get all the comments converted to Comments M
 	public List<CommentsResponseModel> getAllComments(Integer postID) {
-		System.out.println("in ctr");
+		//System.out.println("in ctr");
 		Posts p = entityManager.unwrap(Session.class).load(Posts.class,postID);		
 		String jpql = "Select c from Comments c where c.post=:pId ";
-		System.out.println("post id"+postID);
+		//System.out.println("post id"+postID);
 		List<CommentsResponseModel> commentsResponse = new ArrayList<CommentsResponseModel>(); 
 		List<Comments> comments=entityManager.unwrap(Session.class).createQuery(jpql, Comments.class).setParameter("pId",p).getResultList();
 		for(Comments c:comments)

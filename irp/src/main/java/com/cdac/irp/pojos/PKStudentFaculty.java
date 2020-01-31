@@ -11,7 +11,7 @@ public class PKStudentFaculty implements Serializable{
 	private Integer facultyId;
 	
 	public PKStudentFaculty() {
-		System.out.println("inside PKStudentFaculty const");
+//		System.out.println("inside PKStudentFaculty const");
 	}
 
 	public PKStudentFaculty(Integer prn, Integer facultyId) {

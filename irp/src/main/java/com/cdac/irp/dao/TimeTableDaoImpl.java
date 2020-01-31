@@ -44,7 +44,7 @@ public class TimeTableDaoImpl implements ITimeTableDao
 	@Override
 	public List<TimeTable> getTimeTableAdmin(Integer courseId)
 	{
-		System.out.println("in timetable dao"+courseId);
+//		System.out.println("in timetable dao"+courseId);
 		Course c = entityManager.unwrap(Session.class).load(Course.class,courseId);
 		String jpql1 = "select t from TimeTable t where t.courseId=:cId";
 		
@@ -58,11 +58,11 @@ public class TimeTableDaoImpl implements ITimeTableDao
 	public List<TimeTableUpdateRequestModel> updateTimeTable(List<TimeTableUpdateRequestModel> _request) {
 		List<TimeTableUpdateRequestModel> list = new ArrayList<TimeTableUpdateRequestModel>();
 		for(TimeTableUpdateRequestModel timeTable:_request) {
-			System.out.println(timeTable.getCourseId());
+	//		System.out.println(timeTable.getCourseId());
 			String jpql = "select t from TimeTable t where t.courseId.courseId=:cId and t.day=:day";
 			TimeTable timeSheet=entityManager.unwrap(Session.class).createQuery(jpql, TimeTable.class).setParameter("cId", timeTable.getCourseId()).
 					setParameter("day", timeTable.getDay()).getSingleResult();
-			System.out.println(timeSheet);
+	//		System.out.println(timeSheet);
 			timeSheet.setPeriodA(timeTable.getPeriodA());
 			timeSheet.setPeriodB(timeTable.getPeriodB());
 			timeSheet.setPeriodC(timeTable.getPeriodC());

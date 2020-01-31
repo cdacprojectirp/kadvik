@@ -26,7 +26,7 @@ public class Faculty {
 	
 
 	public Faculty() {
-		System.out.println("in faculty pojo");
+//		System.out.println("in faculty pojo");
 	}
 
 	public Faculty(Integer facultyId, String facultyName, Double salary, Integer experience, Subject subject) {

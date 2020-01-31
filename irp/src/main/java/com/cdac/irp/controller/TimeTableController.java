@@ -29,7 +29,7 @@ public class TimeTableController {
 	}
 	@GetMapping("/getTimeTableAdmin")
 	public List<TimeTable> getTimeTableAdmin(@RequestParam Integer courseId) {
-		System.out.println(courseId);
+	//	System.out.println(courseId);
 		return service.getTimeTableAdmin(courseId);
 	}
 	

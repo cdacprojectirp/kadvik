@@ -10,8 +10,6 @@ public interface IFacultyDao {
 	// CRUD
 	Faculty getfaculty(int id);
 
-	void setFaculty(Faculty f);
-	
 	List<FacultyGetAllResponseModel> getAll();
 	
 	List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn);

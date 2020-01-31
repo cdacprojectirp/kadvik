@@ -1,3 +1,5 @@
+insert into admin values(default, "admin@admin","Admin","admin");
+
 insert into course (course_name) values ('general');
 insert into course (course_name) values ('dac'); 
 insert into course (course_name) values ('dbda'); 

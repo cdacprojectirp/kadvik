@@ -5,7 +5,7 @@ public class AnswerResponseModel {
 	Integer answer;
 
 	public AnswerResponseModel() {
-		System.out.println("in answer model");
+//		System.out.println("in answer model");
 	}
 
 	public Integer getQuestionId() {

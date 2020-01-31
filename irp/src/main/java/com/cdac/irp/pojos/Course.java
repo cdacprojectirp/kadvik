@@ -25,7 +25,7 @@ public class Course {
 	private List<Student> students = new ArrayList<Student>();
 
 	public Course() {
-		System.out.println("in course pojo");
+//		System.out.println("in course pojo");
 	}
 
 	public Course(Integer courseId, String courseName, List<Subject> subjects, List<Student> students) {

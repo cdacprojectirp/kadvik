@@ -4,7 +4,7 @@ public class AnswerRequestModel {
 	Integer questionId;
 
 	public AnswerRequestModel() {
-		System.out.println("in answer request model");
+//		System.out.println("in answer request model");
 
 	}
 
