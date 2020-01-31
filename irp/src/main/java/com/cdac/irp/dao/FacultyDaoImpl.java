@@ -21,13 +21,13 @@ public class FacultyDaoImpl implements IFacultyDao {
 	private EntityManager entityManager;
 
 	@Override
-	public Faculty getfaculty(int id) {
+	public Faculty getfaculty(int id) throws Exception{
 		String jpql = "select f from Faculty f where id=:id";
 		return entityManager.unwrap(Session.class).createQuery(jpql, Faculty.class).getSingleResult();
 	}
 	
 	@Override
-	public List<FacultyGetAllResponseModel> getAll(){
+	public List<FacultyGetAllResponseModel> getAll()throws Exception{
 		String jpql = "select f.facultyId, f.facultyName, f.salary, f.experience from Faculty f";
 		List<Object[]> ol = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class).getResultList();
 		List<FacultyGetAllResponseModel> fl = new ArrayList<>();
@@ -44,7 +44,7 @@ public class FacultyDaoImpl implements IFacultyDao {
 	}
 	
 	@Override
-	public List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn) {
+	public List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn) throws Exception{
 		Student s = entityManager.unwrap(Session.class).load(Student.class, prn);
 		Integer courseId = s.getCourse().getCourseId();
 		String courseName = s.getCourse().getCourseName();

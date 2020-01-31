@@ -14,17 +14,17 @@ import com.cdac.irp.models.PostsModelResponse;
 public class PostsServiceImpl implements IPostsService{
 	@Autowired
 	private IPostsDao dao;
-	public void postInsert(@RequestBody PostModel p)
+	public void postInsert(@RequestBody PostModel p) throws Exception
 	{
 		dao.postInsert(p);
 	}
 	
-	public List<PostsModelResponse> getFirstThreePosts()
+	public List<PostsModelResponse> getFirstThreePosts() throws Exception
 	{
 		return dao.getFirstThreePosts();
 	}
 	
-	public List<PostsModelResponse> getAllPosts()
+	public List<PostsModelResponse> getAllPosts() throws Exception
 	{
 		return dao.getAllPosts();
 	}

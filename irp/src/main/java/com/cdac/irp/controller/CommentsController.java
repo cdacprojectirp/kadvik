@@ -29,37 +29,41 @@ public class CommentsController {
 	private ICommentService service;
 
 	@PostMapping("/addcomments")
-	public void postInsert(@RequestBody CommentsModel c)
-	{
+	public void postInsert(@RequestBody CommentsModel c) throws Exception{
 //		System.out.println(c.toString());  For testing purpose, these will be null if something goes wrong.
 //		System.out.println("------");
 //		System.out.println(c.getPrn());
 //		System.out.println("------");
 //		System.out.println(c.getCommentText());
-		service.postInsert(c);;
-	}
-	
-	@GetMapping("/getFirstThree") //The first three comments will be sent. 
-	public List<CommentsResponseModel> getFirstThreeComments(@RequestParam Integer postId)
-	{
-		if(service.getFirstThreeComments(postId)==null)
-		{
-			return null;
-		}
-		else
-			return service.getFirstThreeComments(postId);
-	}
-	@GetMapping("/getAllComments") //All the comments can be sent.
-	public List<CommentsResponseModel> getAllComments(@RequestParam Integer postId)
-	{
-		
-		if(service.getAllComments(postId)==null)
-		{
-			return null;
-		}
-		else
-			return service.getAllComments(postId);
+		service.postInsert(c);
+		;
 	}
 
-	
+	@GetMapping("/getFirstThree") // The first three comments will be sent.
+	public List<CommentsResponseModel> getFirstThreeComments(@RequestParam Integer postId) throws Exception{
+		try {
+			if (service.getFirstThreeComments(postId) == null) {
+				return null;
+			} else
+				return service.getFirstThreeComments(postId);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
+	}
+
+	@GetMapping("/getAllComments") // All the comments can be sent.
+	public List<CommentsResponseModel> getAllComments(@RequestParam Integer postId)throws Exception {
+
+		try {
+			if (service.getAllComments(postId) == null) {
+				return null;
+			} else
+				return service.getAllComments(postId);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
+	}
+
 }

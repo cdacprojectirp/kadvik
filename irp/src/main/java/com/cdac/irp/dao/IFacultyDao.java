@@ -8,10 +8,10 @@ import com.cdac.irp.pojos.Faculty;
 
 public interface IFacultyDao {
 	// CRUD
-	Faculty getfaculty(int id);
+	Faculty getfaculty(int id) throws Exception;
 
-	List<FacultyGetAllResponseModel> getAll();
+	List<FacultyGetAllResponseModel> getAll() throws Exception;
 	
-	List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn);
+	List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn) throws Exception;
 
 }

@@ -23,20 +23,33 @@ import com.cdac.irp.service.ITimeTable;
 public class TimeTableController {
 	@Autowired
 	private ITimeTable service;
+
 	@GetMapping("/getTimeTable")
 	public List<TimeTable> getTimeTable(@RequestParam Integer page) {
-		return service.getTimeTable(page);
+		try {
+			return service.getTimeTable(page);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
+
 	@GetMapping("/getTimeTableAdmin")
 	public List<TimeTable> getTimeTableAdmin(@RequestParam Integer courseId) {
-	//	System.out.println(courseId);
-		return service.getTimeTableAdmin(courseId);
-	}
-	
-	@PostMapping("/updateTimeTable")
-	public ResponseEntity<?> updateTimetable(@RequestBody List<TimeTableUpdateRequestModel> _request){
+		// System.out.println(courseId);
 		try {
-			return new ResponseEntity<List<TimeTableUpdateRequestModel>>(service.updateTimeTable(_request),HttpStatus.CREATED);
+			return service.getTimeTableAdmin(courseId);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
+	}
+
+	@PostMapping("/updateTimeTable")
+	public ResponseEntity<?> updateTimetable(@RequestBody List<TimeTableUpdateRequestModel> _request) {
+		try {
+			return new ResponseEntity<List<TimeTableUpdateRequestModel>>(service.updateTimeTable(_request),
+					HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);

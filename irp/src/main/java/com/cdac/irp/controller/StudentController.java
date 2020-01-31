@@ -31,29 +31,49 @@ public class StudentController {
 
 	@PostConstruct
 	public void init() {
-	//	System.out.println("in init " + service);
+		// System.out.println("in init " + service);
 	}
 
 	@GetMapping("/getall")
 	public List<Student> getAll() {
-		return service.getAllStudents();
+		try {
+			return service.getAllStudents();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
-	
+
 	@GetMapping("/getstudentbyprn")
-	public Student getStudent(@RequestParam Integer prn){
-		return service.getStudentByPrn(prn);
+	public Student getStudent(@RequestParam Integer prn) {
+		try {
+			return service.getStudentByPrn(prn);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> Authenticate(@RequestBody StudentAuthenticateRequestModel _s) {
-		Integer prn = service.Authenticate(_s.getEmail(), MD5.getMd5(_s.getPassword()));
-		if (prn == null)
-			return new ResponseEntity<Boolean>(false,HttpStatus.OK);
-		return new ResponseEntity<Integer>(prn, HttpStatus.OK);
+		try {
+			Integer prn = service.Authenticate(_s.getEmail(), MD5.getMd5(_s.getPassword()));
+			if (prn == null)
+				return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+			return new ResponseEntity<Integer>(prn, HttpStatus.OK);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@PostMapping("/register")
 	public StudentRegisterRequestModel Register(@RequestBody StudentRegisterRequestModel _student) {
-		return service.RegisterStudent(_student);
+		try {
+			return service.RegisterStudent(_student);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 }

@@ -6,6 +6,6 @@ import com.cdac.irp.models.CourseGetResponseModel;
 import com.cdac.irp.pojos.Course;
 
 public interface ICourseDao {
-	List<CourseGetResponseModel> getAllCourse();
-	Course getCourseByStudentPrn(Integer prn);
+	List<CourseGetResponseModel> getAllCourse() throws Exception;
+	Course getCourseByStudentPrn(Integer prn) throws Exception;
 }

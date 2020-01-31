@@ -7,7 +7,7 @@ import com.cdac.irp.models.FacultyGetResponseModel;
 
 public interface IFacultyService {
 
-	List<FacultyGetAllResponseModel> getAll();
+	List<FacultyGetAllResponseModel> getAll() throws Exception;
 	
-	List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn);
+	List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn) throws Exception;
 }

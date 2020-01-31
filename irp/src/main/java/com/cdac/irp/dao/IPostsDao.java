@@ -10,9 +10,9 @@ import com.cdac.irp.pojos.Posts;
 
 public interface IPostsDao  {
 
-	public void postInsert(PostModel p);
+	public void postInsert(PostModel p)throws Exception;
 	
-	public List<PostsModelResponse> getFirstThreePosts();
+	public List<PostsModelResponse> getFirstThreePosts()throws Exception;
 	
-	public List<PostsModelResponse> getAllPosts();
+	public List<PostsModelResponse> getAllPosts()throws Exception;
 }

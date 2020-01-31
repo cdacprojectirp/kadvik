@@ -24,20 +24,29 @@ public class CourseController {
 
 	@Autowired
 	private ICourseService service;
-	
+
 	@GetMapping("/getAllCourse")
-	public ResponseEntity<?> getAllCourse(){
-		List<CourseGetResponseModel> f = service.getAllCourse();
-		if(f==null) {
-			return null;
+	public ResponseEntity<?> getAllCourse() {
+		try {
+			List<CourseGetResponseModel> f = service.getAllCourse();
+			if (f == null) {
+				return null;
+			}
+			return new ResponseEntity<List<CourseGetResponseModel>>(f, HttpStatus.OK);
+		} catch (Exception e) {
+			e.getMessage();
 		}
-		return new ResponseEntity<List<CourseGetResponseModel>>(f, HttpStatus.OK);
-		
+		return null;
 	}
-	
+
 	@PostMapping("/getCourseByStudentPrn")
-	public Course getCourseByStudentPrn(@RequestBody StudentPrnModel _request){
-		return service.getCourseByStudentPrn(_request.getPrn());
+	public Course getCourseByStudentPrn(@RequestBody StudentPrnModel _request) {
+		try {
+			return service.getCourseByStudentPrn(_request.getPrn());
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
-	
+
 }
