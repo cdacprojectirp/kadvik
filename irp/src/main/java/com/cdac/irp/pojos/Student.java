@@ -73,7 +73,7 @@ public class Student {
 	}
 
 	public Student() {
-		System.out.println("in student pojo");
+//		System.out.println("in student pojo");
 	}
 	
 	public Student(String firstName, String lastName, String email, String password, Date birthDate, Course course) {

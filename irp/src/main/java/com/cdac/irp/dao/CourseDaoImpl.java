@@ -20,7 +20,7 @@ public class CourseDaoImpl implements ICourseDao {
 	private EntityManager entityManager;
 	@Override
 	public List<CourseGetResponseModel> getAllCourse() {
-		String jpql = "select c from Course c";
+		String jpql = "select c from Course c where c.courseName != 'general' or c.courseName != 'General'";
 		List<Course> courses = entityManager.unwrap(Session.class).createQuery(jpql,Course.class).getResultList();
 		
 		List<CourseGetResponseModel> courseList = new ArrayList<CourseGetResponseModel>();
