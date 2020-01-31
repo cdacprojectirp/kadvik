@@ -42,7 +42,6 @@ public class FeedbackDaoImpl implements IFeedbackDao{
 			return fl.get(0); //return first item of list
 		}
 		catch(Exception e) {
-			System.out.println("Exception");
 			return null;
 		}
 	}

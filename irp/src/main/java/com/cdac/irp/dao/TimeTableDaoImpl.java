@@ -30,7 +30,6 @@ public class TimeTableDaoImpl implements ITimeTableDao
 	@Override
 	public List<TimeTable> getTimeTable(Integer data)
 	{
-		System.out.print(data);
 		Student s = entityManager.unwrap(Session.class).load(Student.class,data);
 		
 		Course couId=s.getCourse();

@@ -31,8 +31,6 @@ public class PostDaoImpl implements IPostsDao  {
 		Integer prn=p.getPrn();
 		String text = p.getPostText();
 		Student student = entityManager.unwrap(Session.class).load(Student.class, prn);
-		System.out.println(prn);
-		System.out.println(text);
 		String jpql = "Insert into posts (date,post_text,time,prn)values(?,?,?,?)";
 		entityManager.createNativeQuery(jpql).setParameter(1, LocalDate.now()).setParameter(2, text).setParameter(3,LocalTime.now()).setParameter(4,student).executeUpdate();
 	}

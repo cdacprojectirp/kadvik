@@ -41,7 +41,6 @@ public class TimeTable{
 	
 
 	public String getDay() {
-		System.out.println(day);
 		return day;
 	}
 
