@@ -16,12 +16,12 @@ public class FeedbackServiceImpl implements IFeedbackService {
 	private IFeedbackDao dao;
 
 	@Override
-	public FeedbackGetResponseModel getFeedback(int prn, int facultyId) {
+	public FeedbackGetResponseModel getFeedback(int prn, int facultyId) throws Exception {
 		return dao.getFeedback(prn, facultyId);
 	}
 
 	@Override
-	public FeedbackAddFeedbackRequestModel addFeedback(FeedbackAddFeedbackRequestModel _request) {
+	public FeedbackAddFeedbackRequestModel addFeedback(FeedbackAddFeedbackRequestModel _request) throws Exception{
 		return dao.addFeedback(_request);
 	}
 

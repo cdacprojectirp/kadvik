@@ -19,7 +19,7 @@ public class CourseDaoImpl implements ICourseDao {
 	@Autowired
 	private EntityManager entityManager;
 	@Override
-	public List<CourseGetResponseModel> getAllCourse() {
+	public List<CourseGetResponseModel> getAllCourse() throws Exception{
 		String jpql = "select c from Course c where c.courseName != 'general' or c.courseName != 'General'";
 		List<Course> courses = entityManager.unwrap(Session.class).createQuery(jpql,Course.class).getResultList();
 		
@@ -31,7 +31,7 @@ public class CourseDaoImpl implements ICourseDao {
 	}
 	
 	@Override
-	public Course getCourseByStudentPrn(Integer prn) {
+	public Course getCourseByStudentPrn(Integer prn) throws Exception{
 		Student s = entityManager.unwrap(Session.class).load(Student.class, prn);
 		Course c = s.getCourse();
 		return c;

@@ -10,7 +10,7 @@ import com.cdac.irp.models.PostsModelResponse;
 public interface IPostsService {
 
 	
-	public void postInsert(@RequestBody PostModel p);
-	public List<PostsModelResponse> getFirstThreePosts();
-	public List<PostsModelResponse> getAllPosts();
+	public void postInsert(@RequestBody PostModel p) throws Exception;
+	public List<PostsModelResponse> getFirstThreePosts() throws Exception;
+	public List<PostsModelResponse> getAllPosts() throws Exception;
 }

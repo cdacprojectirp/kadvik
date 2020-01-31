@@ -19,14 +19,18 @@ import com.cdac.irp.service.INoticeBoard;
 @CrossOrigin
 @RequestMapping("/api/noticeboard")
 public class NoticeBoardController {
-	
+
 	@Autowired
 	private INoticeBoard service;
-	
+
 	@GetMapping("/getnoticeboard")
-	public List<NoticeBoard> getNoticeBoard(@RequestParam Integer page){
-		return service.getNoticeBoard(page);
+	public List<NoticeBoard> getNoticeBoard(@RequestParam Integer page) {
+		try {
+			return service.getNoticeBoard(page);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
-	
 
 }

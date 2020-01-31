@@ -12,7 +12,7 @@ public class AdminServiceImpl implements IAdminService {
 	private IAdminDao jpa;
 
 	@Override
-	public Boolean Authenticate(String email, String password) {
+	public Boolean Authenticate(String email, String password) throws Exception {
 
 		if(jpa.Authenticate(email, password) != null ) {
 			return true;

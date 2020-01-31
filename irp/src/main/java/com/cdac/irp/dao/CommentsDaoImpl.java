@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -49,8 +50,7 @@ public class CommentsDaoImpl implements ICommentsDao{
 	public List<CommentsResponseModel> getFirstThreeComments(Integer postID) {
 		//System.out.println("in ctr");
 		Posts p = entityManager.unwrap(Session.class).load(Posts.class,postID);		
-		String jpql = "Select c from Comments c where c.post=:pId ";
-		System.out.println("post id"+postID);
+		String jpql = "Select c from Comments c where c.post=:pId ORDER BY c.commentId DESC ";
 		List<CommentsResponseModel> commentsResponse = new ArrayList<CommentsResponseModel>(); 
 		List<Comments> comments=entityManager.unwrap(Session.class).createQuery(jpql, Comments.class).setParameter("pId",p).setMaxResults(3).getResultList();
 		for(Comments c:comments)
@@ -68,6 +68,7 @@ public class CommentsDaoImpl implements ICommentsDao{
 		//System.out.println("post id"+postID);
 		List<CommentsResponseModel> commentsResponse = new ArrayList<CommentsResponseModel>(); 
 		List<Comments> comments=entityManager.unwrap(Session.class).createQuery(jpql, Comments.class).setParameter("pId",p).getResultList();
+		Collections.reverse(comments);
 		for(Comments c:comments)
 		{	
 			commentsResponse.add(new CommentsResponseModel(c.getCommentText(),c.getPost().getPostId(),c.getStud().getPrn(),c.getStud().getFirstName(),c.getStud().getLastName(),c.getDate(),c.getTime()));

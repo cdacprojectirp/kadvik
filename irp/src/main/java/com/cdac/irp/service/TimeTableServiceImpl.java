@@ -19,21 +19,21 @@ public class TimeTableServiceImpl implements ITimeTable {
 	private ITimeTableDao dao;
 	
 	@Override
-	public  List<TimeTable> getTimeTable(Integer data)
+	public  List<TimeTable> getTimeTable(Integer data)throws Exception
 	{
 		
 		return dao.getTimeTable(data);
 	}
 	
 	@Override
-	public  List<TimeTable> getTimeTableAdmin(Integer courseId)
+	public  List<TimeTable> getTimeTableAdmin(Integer courseId)throws Exception
 	{
 		
 		return dao.getTimeTableAdmin(courseId);
 	}
 
 	@Override
-	public List<TimeTableUpdateRequestModel> updateTimeTable(List<TimeTableUpdateRequestModel> _request) {
+	public List<TimeTableUpdateRequestModel> updateTimeTable(List<TimeTableUpdateRequestModel> _request) throws Exception{
 		return dao.updateTimeTable(_request);
 	}
 

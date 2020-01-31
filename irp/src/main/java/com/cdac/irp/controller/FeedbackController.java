@@ -19,30 +19,32 @@ import com.cdac.irp.service.IFeedbackService;
 @CrossOrigin
 @RequestMapping("/api/feedback")
 public class FeedbackController {
-	
+
 	@Autowired
 	private IFeedbackService service;
-	
+
 	@PostMapping("/getfeedback")
-	public ResponseEntity<?> getFeedback(@RequestBody FeedbackGetFeedbackRequestModel _request){
-		FeedbackGetResponseModel f = service.getFeedback(_request.getPrn(), _request.getFacultyId());
-		if(f==null) {
-			return null;
-		}
-		return new ResponseEntity<FeedbackGetResponseModel>(f, HttpStatus.OK);
-		
-	}
-	
-	@PostMapping("/addfeedback")
-	public ResponseEntity<?> addFeedback(@RequestBody FeedbackAddFeedbackRequestModel _request){
+	public ResponseEntity<?> getFeedback(@RequestBody FeedbackGetFeedbackRequestModel _request) {
 		try {
-			return new ResponseEntity<FeedbackAddFeedbackRequestModel>(service.addFeedback(_request), HttpStatus.CREATED);
+			FeedbackGetResponseModel f = service.getFeedback(_request.getPrn(), _request.getFacultyId());
+			if (f == null) {
+				return null;
+			}
+			return new ResponseEntity<FeedbackGetResponseModel>(f, HttpStatus.OK);
+		} catch (Exception e) {
+			e.getMessage();
 		}
-		catch(Exception e) {
+		return null;
+	}
+
+	@PostMapping("/addfeedback")
+	public ResponseEntity<?> addFeedback(@RequestBody FeedbackAddFeedbackRequestModel _request) {
+		try {
+			return new ResponseEntity<FeedbackAddFeedbackRequestModel>(service.addFeedback(_request),
+					HttpStatus.CREATED);
+		} catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
 
 }

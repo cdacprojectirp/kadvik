@@ -18,12 +18,12 @@ public class CourseServiceImpl implements ICourseService {
 	private ICourseDao dao;
 	
 	@Override
-	public List<CourseGetResponseModel> getAllCourse() {
+	public List<CourseGetResponseModel> getAllCourse()throws Exception {
 		return dao.getAllCourse();
 	}
 
 	@Override
-	public Course getCourseByStudentPrn(Integer prn) {
+	public Course getCourseByStudentPrn(Integer prn)throws Exception {
 		return dao.getCourseByStudentPrn(prn);
 	}
 

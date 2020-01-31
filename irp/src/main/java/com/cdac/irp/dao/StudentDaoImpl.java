@@ -21,7 +21,7 @@ public class StudentDaoImpl implements IStudentDao {
 	private EntityManager entityManager;
 
 	@Override
-	public Integer Authenticate(String email, String password) {
+	public Integer Authenticate(String email, String password) throws Exception{
 		Integer prn;
 		String jpql = "select s.prn from Student s where s.email=:em and s.password=:pa";
 		try {
@@ -36,13 +36,13 @@ public class StudentDaoImpl implements IStudentDao {
 	}
 
 	@Override
-	public List<Student> getAllStudents() {
+	public List<Student> getAllStudents() throws Exception{
 		String jpql = "select s from Student s";
 		return entityManager.unwrap(Session.class).createQuery(jpql, Student.class).getResultList();
 	}
 
 	@Override
-	public StudentRegisterRequestModel Registration(StudentRegisterRequestModel regStudent) {
+	public StudentRegisterRequestModel Registration(StudentRegisterRequestModel regStudent)throws Exception {
 
 		Course course = entityManager.unwrap(Session.class).load(Course.class, regStudent.getCourseId());
 	
@@ -54,7 +54,7 @@ public class StudentDaoImpl implements IStudentDao {
 	}
 
 	@Override
-	public Student getStudentByPrn(Integer prn) {
+	public Student getStudentByPrn(Integer prn) throws Exception{
 		String jpql = "select s from Student s where s.prn=:pn";
 		return entityManager.unwrap(Session.class).createQuery(jpql, Student.class).setParameter("pn", prn).getSingleResult();
 	}

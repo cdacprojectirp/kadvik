@@ -22,7 +22,7 @@ public class AdminController {
 	private IAdminService service;
 
 	@PostMapping("/authenticate")
-	public ResponseEntity<?> Authenticate(@RequestBody StudentAuthenticateRequestModel _request) {
+	public ResponseEntity<?> Authenticate(@RequestBody StudentAuthenticateRequestModel _request) throws Exception {
 		Boolean ret = service.Authenticate(_request.getEmail(), MD5.getMd5(_request.getPassword()));
 		return new ResponseEntity<Boolean>(ret, HttpStatus.OK);
 	}
