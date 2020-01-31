@@ -19,18 +19,28 @@ import com.cdac.irp.service.IFacultyService;
 @CrossOrigin
 @RequestMapping("/api/faculty")
 public class FacultyController {
-	
+
 	@Autowired
 	IFacultyService service;
-	
+
 	@GetMapping("/getall")
-	public List<FacultyGetAllResponseModel> getall(){
-		return service.getAll();
+	public List<FacultyGetAllResponseModel> getall() {
+		try {
+			return service.getAll();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
-	
+
 	@PostMapping("/getlistbystudentprn")
-	public List<FacultyGetResponseModel> getFacultyListByStudentPrn(@RequestBody StudentPrnModel _request){
-		return service.getFacultyListByStudentPrn(_request.getPrn());
+	public List<FacultyGetResponseModel> getFacultyListByStudentPrn(@RequestBody StudentPrnModel _request) {
+		try {
+			return service.getFacultyListByStudentPrn(_request.getPrn());
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 }

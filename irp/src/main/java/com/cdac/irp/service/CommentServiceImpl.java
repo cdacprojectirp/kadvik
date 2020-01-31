@@ -16,12 +16,12 @@ public class CommentServiceImpl implements ICommentService{
 	private ICommentsDao dao;
 
 
-	public void postInsert(@RequestBody CommentsModel c)
+	public void postInsert(@RequestBody CommentsModel c)throws Exception
 	{
 		dao.setComments(c);
 	}
 	
-	public List<CommentsResponseModel> getFirstThreeComments(@RequestParam Integer postId)
+	public List<CommentsResponseModel> getFirstThreeComments(@RequestParam Integer postId)throws Exception
 	{
 		if(dao.getFirstThreeComments(postId)==null)
 		{
@@ -31,7 +31,7 @@ public class CommentServiceImpl implements ICommentService{
 			return dao.getFirstThreeComments(postId);
 	}
 
-	public List<CommentsResponseModel> getAllComments(@RequestParam Integer postId)
+	public List<CommentsResponseModel> getAllComments(@RequestParam Integer postId)throws Exception
 	{
 		
 		if(dao.getAllComments(postId)==null)

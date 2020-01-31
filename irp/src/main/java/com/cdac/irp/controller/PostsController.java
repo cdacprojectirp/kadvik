@@ -22,23 +22,34 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostsController {
 	@Autowired
 	private IPostsService service;
-	
+
 	@PostMapping("/addposts")
-	public void postInsert(@RequestBody PostModel p)
-	{
-		service.postInsert(p);
+	public void postInsert(@RequestBody PostModel p) {
+		try {
+			service.postInsert(p);
+		} catch (Exception e) {
+			e.getMessage();
+		}
 	}
-	
+
 	@GetMapping("/getFirstThreePosts")
-	public List<PostsModelResponse> getFirstThreePosts()
-	{
-		return service.getFirstThreePosts();
+	public List<PostsModelResponse> getFirstThreePosts() {
+		try {
+			return service.getFirstThreePosts();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
-	
+
 	@GetMapping("/getAllPosts")
-	public List<PostsModelResponse> getAllPosts()
-	{
-		return service.getAllPosts();
+	public List<PostsModelResponse> getAllPosts() {
+		try {
+			return service.getAllPosts();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 }

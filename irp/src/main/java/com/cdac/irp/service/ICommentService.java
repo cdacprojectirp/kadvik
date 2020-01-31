@@ -10,7 +10,7 @@ import com.cdac.irp.models.CommentsResponseModel;
 
 public interface ICommentService {
 
-	public void postInsert(@RequestBody CommentsModel c);
-	public List<CommentsResponseModel> getFirstThreeComments(@RequestParam Integer postId);
-	public List<CommentsResponseModel> getAllComments(@RequestParam Integer postId);
+	public void postInsert(@RequestBody CommentsModel c) throws Exception;
+	public List<CommentsResponseModel> getFirstThreeComments(@RequestParam Integer postId)throws Exception;
+	public List<CommentsResponseModel> getAllComments(@RequestParam Integer postId)throws Exception;
 }

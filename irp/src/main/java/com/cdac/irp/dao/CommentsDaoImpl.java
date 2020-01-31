@@ -31,7 +31,7 @@ public class CommentsDaoImpl implements ICommentsDao{
 	private EntityManager entityManager;
 	
 	@Override //this will set the comment as per the PRN and Post ID. 
-	public void setComments(CommentsModel c) {
+	public void setComments(CommentsModel c)throws Exception {
 
 		Integer prn = c.getPrn();
 		Integer postId=c.getPostId();
@@ -46,7 +46,7 @@ public class CommentsDaoImpl implements ICommentsDao{
 		}
 	
 	@Override //This will get only the first three comments converted to Comments M
-	public List<CommentsResponseModel> getFirstThreeComments(Integer postID) {
+	public List<CommentsResponseModel> getFirstThreeComments(Integer postID) throws Exception{
 		//System.out.println("in ctr");
 		Posts p = entityManager.unwrap(Session.class).load(Posts.class,postID);		
 		String jpql = "Select c from Comments c where c.post=:pId ";
@@ -61,7 +61,7 @@ public class CommentsDaoImpl implements ICommentsDao{
 	}
 	
 	@Override //This will get all the comments converted to Comments M
-	public List<CommentsResponseModel> getAllComments(Integer postID) {
+	public List<CommentsResponseModel> getAllComments(Integer postID) throws Exception{
 		//System.out.println("in ctr");
 		Posts p = entityManager.unwrap(Session.class).load(Posts.class,postID);		
 		String jpql = "Select c from Comments c where c.post=:pId ";

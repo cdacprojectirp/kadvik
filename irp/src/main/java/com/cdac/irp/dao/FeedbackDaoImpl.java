@@ -24,7 +24,7 @@ public class FeedbackDaoImpl implements IFeedbackDao{
 	private EntityManager entityManager;
 
 	@Override
-	public FeedbackGetResponseModel getFeedback(int prn, int facultyId) {
+	public FeedbackGetResponseModel getFeedback(int prn, int facultyId) throws Exception{
 		String jpql = "SELECT f.assignment, f.interaction, f.punctuality, f.teaching, f.comments from Feedback f where f.feedbackId.prn=:_prn and f.feedbackId.facultyId=:_facultyId";
 		try {
 			List<Object[]> ol = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class).setParameter("_prn", prn).setParameter("_facultyId", facultyId).getResultList();
@@ -48,7 +48,7 @@ public class FeedbackDaoImpl implements IFeedbackDao{
 	}
 	
 	@Override
-	public FeedbackAddFeedbackRequestModel addFeedback(FeedbackAddFeedbackRequestModel _request) {
+	public FeedbackAddFeedbackRequestModel addFeedback(FeedbackAddFeedbackRequestModel _request) throws Exception{
 		Integer prn = _request.getPrn();
 		Integer facultyId = _request.getFacultyId();
 		

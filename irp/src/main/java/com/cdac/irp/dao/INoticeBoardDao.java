@@ -5,5 +5,5 @@ import com.cdac.irp.pojos.NoticeBoard;
 
 public interface INoticeBoardDao {
 	
-		List<NoticeBoard> getNoticeBoard(Integer Data);
+		List<NoticeBoard> getNoticeBoard(Integer Data)throws Exception;
 }

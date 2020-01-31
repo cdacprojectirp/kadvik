@@ -28,7 +28,7 @@ public class TimeTableDaoImpl implements ITimeTableDao
 	private EntityManager entityManager;
 	
 	@Override
-	public List<TimeTable> getTimeTable(Integer data)
+	public List<TimeTable> getTimeTable(Integer data)throws Exception
 	{
 		System.out.print(data);
 		Student s = entityManager.unwrap(Session.class).load(Student.class,data);
@@ -42,7 +42,7 @@ public class TimeTableDaoImpl implements ITimeTableDao
 	}
 
 	@Override
-	public List<TimeTable> getTimeTableAdmin(Integer courseId)
+	public List<TimeTable> getTimeTableAdmin(Integer courseId)throws Exception
 	{
 //		System.out.println("in timetable dao"+courseId);
 		Course c = entityManager.unwrap(Session.class).load(Course.class,courseId);
@@ -55,7 +55,7 @@ public class TimeTableDaoImpl implements ITimeTableDao
 	}
 	
 	@Override
-	public List<TimeTableUpdateRequestModel> updateTimeTable(List<TimeTableUpdateRequestModel> _request) {
+	public List<TimeTableUpdateRequestModel> updateTimeTable(List<TimeTableUpdateRequestModel> _request) throws Exception{
 		List<TimeTableUpdateRequestModel> list = new ArrayList<TimeTableUpdateRequestModel>();
 		for(TimeTableUpdateRequestModel timeTable:_request) {
 	//		System.out.println(timeTable.getCourseId());

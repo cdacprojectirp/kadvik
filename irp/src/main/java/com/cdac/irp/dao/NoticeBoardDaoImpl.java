@@ -21,7 +21,7 @@ public class NoticeBoardDaoImpl implements INoticeBoardDao {
 	
 	
 	@Override
-	public List<NoticeBoard> getNoticeBoard(Integer prn) {
+	public List<NoticeBoard> getNoticeBoard(Integer prn) throws Exception{
 		System.out.println(prn);
 		Student s = entityManager.unwrap(Session.class).load(Student.class,prn);
 		

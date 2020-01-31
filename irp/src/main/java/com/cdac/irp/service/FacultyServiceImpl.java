@@ -18,12 +18,12 @@ public class FacultyServiceImpl implements IFacultyService {
 	IFacultyDao dao;
 
 	@Override
-	public List<FacultyGetAllResponseModel> getAll() {
+	public List<FacultyGetAllResponseModel> getAll() throws Exception{
 		return dao.getAll();
 	}
 
 	@Override
-	public List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn) {
+	public List<FacultyGetResponseModel> getFacultyListByStudentPrn(Integer prn) throws Exception{
 		return dao.getFacultyListByStudentPrn(prn);
 	}
 	

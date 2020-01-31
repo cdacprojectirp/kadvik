@@ -18,23 +18,23 @@ public class StudentServiceImpl implements IStudentService {
 	private IStudentDao dao;
 
 	@Override
-	public Integer Authenticate(String email, String password) {
+	public Integer Authenticate(String email, String password)throws Exception {
 		return dao.Authenticate(email, password);
 	}
 
 	@Override
-	public List<Student> getAllStudents() {
+	public List<Student> getAllStudents() throws Exception{
 		return dao.getAllStudents();
 	}
 
 	@Override
-	public StudentRegisterRequestModel RegisterStudent(StudentRegisterRequestModel _student) {
+	public StudentRegisterRequestModel RegisterStudent(StudentRegisterRequestModel _student) throws Exception{
 		return dao.Registration(_student);
 
 	}
 
 	@Override
-	public Student getStudentByPrn(Integer prn) {
+	public Student getStudentByPrn(Integer prn) throws Exception{
 		return dao.getStudentByPrn(prn);
 	}
 

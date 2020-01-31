@@ -7,11 +7,11 @@ import com.cdac.irp.pojos.Student;
 
 public interface IStudentService {
 
-	Integer Authenticate(String email, String password);
+	Integer Authenticate(String email, String password) throws Exception;
 
-	List<Student> getAllStudents();
+	List<Student> getAllStudents() throws Exception;
 
-	StudentRegisterRequestModel RegisterStudent(StudentRegisterRequestModel _student);
+	StudentRegisterRequestModel RegisterStudent(StudentRegisterRequestModel _student) throws Exception;
 
-	Student getStudentByPrn(Integer prn);
+	Student getStudentByPrn(Integer prn) throws Exception;
 }
