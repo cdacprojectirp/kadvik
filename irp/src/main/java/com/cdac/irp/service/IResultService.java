@@ -8,13 +8,13 @@ import com.cdac.irp.pojos.Student;
 
 public interface IResultService {
 
-	void submitResult(ResultRequestModel result);
+	void submitResult(ResultRequestModel result) throws Exception;
 
-	List<Student> getTopperBySubject(Integer subjectId);
+	List<Student> getTopperBySubject(Integer subjectId) throws Exception;
 
-	Student getTopperByCourse(Integer courseId);
+	Student getTopperByCourse(Integer courseId) throws Exception;
 
-	List<Result> getResultlist(Integer subjectId);
+	List<Result> getResultlist(Integer subjectId) throws Exception;
 
-	List<Result> getResultsByPrn(Integer prn);
+	List<Result> getResultsByPrn(Integer prn) throws Exception;
 }

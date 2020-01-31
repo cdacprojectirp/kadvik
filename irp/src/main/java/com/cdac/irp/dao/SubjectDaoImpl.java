@@ -18,7 +18,7 @@ public class SubjectDaoImpl implements ISubjectDao {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Subject> getAllSubjects(Integer prn) {
+	public List<Subject> getAllSubjects(Integer prn) throws Exception{
 		Student s = entityManager.unwrap(Session.class).load(Student.class, prn);
 		Integer cId = s.getCourse().getCourseId();
 	
@@ -31,7 +31,7 @@ public class SubjectDaoImpl implements ISubjectDao {
 	}
 
 	@Override
-	public Subject getSubject(Integer subjectId) {
+	public Subject getSubject(Integer subjectId) throws Exception{
 		return entityManager.unwrap(Session.class).load(Subject.class, subjectId);
 	}
 

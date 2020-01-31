@@ -23,6 +23,11 @@ public class SubjectController {
 	
 	@PostMapping("/list")
 	public List<Subject> getSubjectListByStudentPrn(@RequestBody StudentPrnModel _request){
-		return service.getSubjectNames(_request.getPrn());
+		try {
+			return service.getSubjectNames(_request.getPrn());
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 }

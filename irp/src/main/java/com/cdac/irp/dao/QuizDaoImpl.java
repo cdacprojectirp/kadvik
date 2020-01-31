@@ -21,7 +21,7 @@ public class QuizDaoImpl implements IQuizDao {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Question> getQuestionList() {
+	public List<Question> getQuestionList() throws Exception{
 		String jpql = "SElECT q.questionId, q.question, q.option1, q.option2, q.option3, q.option4 FROM Question AS q";
 		List<Object[]> olt = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class).getResultList();
 		// System.out.println(olt);
@@ -43,13 +43,13 @@ public class QuizDaoImpl implements IQuizDao {
 	}
 
 	@Override
-	public void setQuestion(Question qst, int subId) {
+	public void setQuestion(Question qst, int subId) throws Exception{
 		String jpql = "INSERT INTO question (answer,image)";
 
 	}
 
 	@Override
-	public List<AnswerResponseModel> getAnswerList(List<AnswerRequestModel> qstIds) {
+	public List<AnswerResponseModel> getAnswerList(List<AnswerRequestModel> qstIds) throws Exception{
 //		String jpql = "SElECT q.questionId, q.answer FROM Question AS q";
 //		List<Object[]> olt = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class).getResultList();
 //		List<AnswerResponseModel> lt = new ArrayList<>();
@@ -77,7 +77,7 @@ public class QuizDaoImpl implements IQuizDao {
 	}
 
 	@Override
-	public List<Question> getQuestionbySubject(Integer subId) {
+	public List<Question> getQuestionbySubject(Integer subId) throws Exception{
 		Subject subject = entityManager.unwrap(Session.class).load(Subject.class, subId);
 		String jpql = "SElECT q.questionId, q.question, q.option1, q.option2, q.option3, q.option4 FROM Question AS q WHERE q.subject.subjectId= :sid";
 		List<Object[]> olt = entityManager.unwrap(Session.class).createQuery(jpql, Object[].class)

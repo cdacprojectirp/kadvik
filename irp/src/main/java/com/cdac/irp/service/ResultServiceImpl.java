@@ -26,7 +26,7 @@ public class ResultServiceImpl implements IResultService {
 	private ISubjectDao subDao;
 
 	@Override
-	public void submitResult(ResultRequestModel resModel) {
+	public void submitResult(ResultRequestModel resModel) throws Exception{
 		Student stu = stuDao.getStudentByPrn(resModel.getPrn());
 		Subject sub = subDao.getSubject(resModel.getSubjectId());
 		PKStudentSubject result_id = new PKStudentSubject();
@@ -42,13 +42,13 @@ public class ResultServiceImpl implements IResultService {
 	}
 
 	@Override
-	public List<Result> getResultlist(Integer subjectId) {
+	public List<Result> getResultlist(Integer subjectId) throws Exception{
 		Subject sub = subDao.getSubject(subjectId);
 		return jpaDao.findResultsBySubject(sub);
 	}
 
 	@Override
-	public List<Student> getTopperBySubject(Integer subjectId) {
+	public List<Student> getTopperBySubject(Integer subjectId) throws Exception{
 		Subject sub = subDao.getSubject(subjectId);
 		Result res = jpaDao.findTopBySubjectOrderByMarksDesc(sub);
 		List<Result> results = jpaDao.findAllByMarks(res.getMarks());
@@ -60,13 +60,13 @@ public class ResultServiceImpl implements IResultService {
 	}
 
 	@Override
-	public Student getTopperByCourse(Integer courseId) {
+	public Student getTopperByCourse(Integer courseId) throws Exception{
 		// System.out.println(jpaDao.findTopByOrderByMarksDesc());
 		return null;
 	}
 
 	@Override
-	public List<Result> getResultsByPrn(Integer prn) {
+	public List<Result> getResultsByPrn(Integer prn) throws Exception{
 		Student stu = stuDao.getStudentByPrn(prn);
 		List<Result> report = jpaDao.findResultsByStudent(stu);
 		return report;

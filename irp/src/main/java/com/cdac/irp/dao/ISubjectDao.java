@@ -6,10 +6,10 @@ import com.cdac.irp.pojos.Subject;
 
 public interface ISubjectDao {
 
-	List<Subject> getAllSubjects(Integer prn);
+	List<Subject> getAllSubjects(Integer prn) throws Exception;
 	
 	//retrieve
-	Subject getSubject(Integer subjectId);
+	Subject getSubject(Integer subjectId) throws Exception;
 	
 
 }

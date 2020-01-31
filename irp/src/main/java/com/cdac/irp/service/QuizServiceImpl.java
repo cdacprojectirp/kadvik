@@ -30,10 +30,7 @@ public class QuizServiceImpl implements IQuizService {
 	private ISubjectDao subDao;
 
 	@Override
-	public List<QuestionResponseModel> getTenQuestionList(/*
-															 * add course id parameter later on and student id for
-															 * randomizer seed
-															 */) {
+	public List<QuestionResponseModel> getTenQuestionList() throws Exception {
 		List<Question> qts = dao.getQuestionList();
 		Collections.shuffle(qts);
 		if (qts.size() >= 10)
@@ -51,12 +48,12 @@ public class QuizServiceImpl implements IQuizService {
 	}
 
 	@Override
-	public List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds) {
+	public List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds) throws Exception {
 		return dao.getAnswerList(qstIds);
 	}
 
 	@Override
-	public List<QuestionResponseModel> getQuestionsBySubject(Integer subId) {
+	public List<QuestionResponseModel> getQuestionsBySubject(Integer subId) throws Exception {
 		List<Question> qts = dao.getQuestionbySubject(subId);
 		Collections.shuffle(qts);
 		if (qts.size() >= 10)
@@ -74,7 +71,7 @@ public class QuizServiceImpl implements IQuizService {
 	}
 
 	@Override
-	public Question putQuestion(QuestionRequestModel qst) {
+	public Question putQuestion(QuestionRequestModel qst) throws Exception {
 		Subject subject = subDao.getSubject(qst.getSubjectId());
 		Question q= new Question();
 		q.setSubject(subject);

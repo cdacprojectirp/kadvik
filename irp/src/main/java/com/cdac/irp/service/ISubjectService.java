@@ -6,6 +6,6 @@ import com.cdac.irp.pojos.Subject;
 
 public interface ISubjectService {
 
-	List<Subject> getSubjectNames(Integer prn);
+	List<Subject> getSubjectNames(Integer prn) throws Exception;
 	
 }

@@ -13,14 +13,14 @@ import com.cdac.irp.pojos.Subject;
 public interface IResultJpaDao extends JpaRepository<Result, PKStudentSubject> {
 
 	@Query("SELECT r FROM Result r WHERE r.subject= :subject")
-	public List<Result> findResultsBySubject(Subject subject);
+	public List<Result> findResultsBySubject(Subject subject) throws Exception;
 
-	public Result findTopBySubjectOrderByMarksDesc(Subject subject);
+	public Result findTopBySubjectOrderByMarksDesc(Subject subject) throws Exception;
 	
-	public List<Result> findAllByMarks(Integer marks);
+	public List<Result> findAllByMarks(Integer marks) throws Exception;
 	
 	@Query("SELECT r FROM Result r WHERE r.student= :student")
-	public List<Result> findResultsByStudent(Student student);
+	public List<Result> findResultsByStudent(Student student) throws Exception;
 	
 	//public Result findByStudentByOrderByMarksDesc();
 }

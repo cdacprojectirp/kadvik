@@ -27,8 +27,12 @@ public class ResultController {
 
 	@PostMapping("/submit")
 	public void submitResult(@RequestBody ResultRequestModel _reqResult) {
-		if(_reqResult.getSubjectId()!=0) {
-			service.submitResult(_reqResult);
+		try {
+			if(_reqResult.getSubjectId()!=0) {
+				service.submitResult(_reqResult);
+			}
+		} catch (Exception e) {
+			e.getMessage();
 		}
 	}
 
@@ -36,34 +40,60 @@ public class ResultController {
 	public Float getAverageResult(Integer subjectId) {
 		int sum = 0;
 		float avg = 0;
-		List<Result> results = service.getResultlist(subjectId);
-		for (Result result : results) {
-			sum += result.getMarks();
+		try {
+			List<Result> results = service.getResultlist(subjectId);
+			for (Result result : results) {
+				sum += result.getMarks();
+			}
+			avg = (float) sum / (results.size());
+			return avg;
+		} catch (Exception e) {
+			e.getMessage();
 		}
-		avg = (float) sum / (results.size());
-		return avg;
+		return null;
 	}
 
 	@GetMapping("/list")
 	public List<Result> getResults(@RequestParam Integer subjectId) {
-		List<Result> results = service.getResultlist(subjectId);
-		return results;
+		
+		try {
+			List<Result> results = service.getResultlist(subjectId);
+			return results;
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 	@GetMapping("/topper")
 	public List<Student> getTopper(Integer subjectId) {
-		return service.getTopperBySubject(subjectId);
+		try {
+			return service.getTopperBySubject(subjectId);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 	@GetMapping("/overalltopper")
 	public Student getCourseTopper(Integer courseId) {
-		service.getTopperByCourse(courseId);
+		try {
+			service.getTopperByCourse(courseId);
+			return null;//for later use
+		} catch (Exception e) {
+			e.getMessage();
+		}
 		return null;
 	}
 
 	@PostMapping("/report")
 	public List<Result> getStudentReport(@RequestBody StudentPrnModel student) {
-		return service.getResultsByPrn(student.getPrn());
+		try {
+			return service.getResultsByPrn(student.getPrn());
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 	

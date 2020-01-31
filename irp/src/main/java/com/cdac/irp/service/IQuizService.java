@@ -9,8 +9,8 @@ import com.cdac.irp.models.QuestionResponseModel;
 import com.cdac.irp.pojos.Question;
 
 public interface IQuizService {
-	List<QuestionResponseModel> getTenQuestionList();
-	List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds);
-	List<QuestionResponseModel> getQuestionsBySubject(Integer subId);
-	Question putQuestion(QuestionRequestModel qst);
+	List<QuestionResponseModel> getTenQuestionList() throws Exception;
+	List<AnswerResponseModel> getAnswersList(List<AnswerRequestModel> qstIds) throws Exception;
+	List<QuestionResponseModel> getQuestionsBySubject(Integer subId) throws Exception;
+	Question putQuestion(QuestionRequestModel qst) throws Exception;
 }

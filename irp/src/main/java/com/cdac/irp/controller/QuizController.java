@@ -34,23 +34,43 @@ public class QuizController {
 	}
 
 	@GetMapping("/quiz")
-	public List<QuestionResponseModel> getExamQuestions() {
-		return service.getTenQuestionList();
+	public List<QuestionResponseModel> getExamQuestions() {	
+		try {
+			return service.getTenQuestionList();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 	@PostMapping("/quiz/subject")
-	public List<QuestionResponseModel> getExamQuestionsBySubject(@RequestBody SubjectRequestModel _requestSubject) {
-		return service.getQuestionsBySubject(_requestSubject.getSubjectId());
+	public List<QuestionResponseModel> getExamQuestionsBySubject(@RequestBody SubjectRequestModel _requestSubject) {		
+		try {
+			return service.getQuestionsBySubject(_requestSubject.getSubjectId());
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 	@PostMapping("/answers")
-	public List<AnswerResponseModel> getExamAnswers(@RequestBody List<AnswerRequestModel> qstIds) {
-		return service.getAnswersList(qstIds);
+	public List<AnswerResponseModel> getExamAnswers(@RequestBody List<AnswerRequestModel> qstIds) {		
+		try {
+			return service.getAnswersList(qstIds);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 	@PostMapping("/question")
 	public Question putExamQuestion(@RequestBody QuestionRequestModel _requestQuestion) {
-		return service.putQuestion(_requestQuestion);
+		try {
+			return service.putQuestion(_requestQuestion);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
 	}
 
 }

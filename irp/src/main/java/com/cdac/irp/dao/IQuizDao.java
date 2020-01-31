@@ -8,12 +8,12 @@ import com.cdac.irp.pojos.Question;
 
 public interface IQuizDao {
 	//crud
-	void setQuestion(Question q, int subId);
+	void setQuestion(Question q, int subId) throws Exception;
 	
-	List<Question> getQuestionList();
+	List<Question> getQuestionList() throws Exception;
 	
-	List<AnswerResponseModel> getAnswerList(List<AnswerRequestModel> qstIds);
+	List<AnswerResponseModel> getAnswerList(List<AnswerRequestModel> qstIds) throws Exception;
 
-	List<Question> getQuestionbySubject(Integer subId);
+	List<Question> getQuestionbySubject(Integer subId) throws Exception;
 	
 }

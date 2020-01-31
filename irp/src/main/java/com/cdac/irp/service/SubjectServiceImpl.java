@@ -15,7 +15,7 @@ public class SubjectServiceImpl implements ISubjectService {
 	private ISubjectDao dao;
 
 	@Override
-	public List<Subject> getSubjectNames(Integer prn) {
+	public List<Subject> getSubjectNames(Integer prn) throws Exception{
 		List<Subject> subjects = dao.getAllSubjects(prn);
 		return subjects;
 	}
