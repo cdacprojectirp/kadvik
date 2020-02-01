@@ -5,7 +5,6 @@ public class ResultResponseModel {
 	private String subjectName;
 
 	public ResultResponseModel() {
-		System.out.println("in result resp model");
 	}
 
 	public Integer getMarks() {
