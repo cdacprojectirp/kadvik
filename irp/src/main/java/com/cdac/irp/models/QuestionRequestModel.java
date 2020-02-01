@@ -11,7 +11,6 @@ public class QuestionRequestModel {
 	private Integer answer;
 
 	public QuestionRequestModel() {
-		System.out.println("question request model");
 	}
 
 	public Integer getSubjectId() {
